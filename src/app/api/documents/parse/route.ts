@@ -40,13 +40,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Convert file to buffer and parse — dynamic import to avoid Vercel bundling issues
+    // Convert file to buffer and parse with pdf-parse v1
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
-    const { PDFParse } = await import("pdf-parse");
-    const parser = new PDFParse({ data: buffer });
-    const result = await parser.getText();
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const pdfParse = require("pdf-parse");
+    const result = await pdfParse(buffer);
 
     if (!result.text || result.text.trim().length === 0) {
       return NextResponse.json(
@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       text: result.text,
       filename: file.name,
-      pages: result.total,
+      pages: result.numpages,
     });
   } catch (error) {
     console.error("PDF parsing error:", error);
