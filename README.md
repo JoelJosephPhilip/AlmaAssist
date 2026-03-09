@@ -54,6 +54,27 @@ This is a real problem that university vendors face — procurement teams send l
 
 **Production URL**: [https://alma-assist-next.vercel.app](https://alma-assist-next.vercel.app/)
 
+### Demo Account
+
+A pre-loaded demo account is available for reviewers:
+
+| Field | Value |
+|-------|-------|
+| **Email** | demo@gmail.com |
+| **Password** | Hello@1234 |
+
+The account is pre-loaded with:
+- EduVault vendor assessment questionnaire (15 questions)
+- 2 reference documents (Security Policy + Technical Specs & SLA)
+- AI-generated answers with confidence scores and citations
+
+**Recommended flow:**
+1. Log in with demo credentials above
+2. Open the pre-loaded questionnaire
+3. View AI-generated answers with evidence snippets
+4. Try editing an answer inline
+5. Export the completed questionnaire as PDF
+
 ---
 
 ## Tech Stack
