@@ -69,6 +69,7 @@ Return ONLY valid JSON. Example format:
       },
       body: JSON.stringify({
         model: MODEL,
+        max_tokens: 2048,
         messages: [{ role: "user", content: prompt }],
       }),
     });
@@ -76,8 +77,14 @@ Return ONLY valid JSON. Example format:
     if (!res.ok) {
       const body = await res.text();
       console.error("OpenRouter error:", res.status, body);
+      const errorMsg =
+        res.status === 429
+          ? "AI rate limit reached. Please wait and try again."
+          : res.status === 402
+            ? "AI service out of credits. Please top up at openrouter.ai/settings/credits."
+            : "Failed to extract questions.";
       return NextResponse.json(
-        { error: res.status === 429 ? "AI rate limit reached. Please wait and try again." : "Failed to extract questions." },
+        { error: errorMsg },
         { status: res.status }
       );
     }

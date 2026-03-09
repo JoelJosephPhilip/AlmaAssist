@@ -18,6 +18,7 @@ async function chatCompletion(prompt: string): Promise<string> {
     },
     body: JSON.stringify({
       model: MODEL,
+      max_tokens: 2048,
       messages: [{ role: "user", content: prompt }],
     }),
   });
