@@ -2,9 +2,19 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { PDFParse } from "pdf-parse";
+import { verifyAuthToken } from "@/lib/auth-helpers";
+
+/** Maximum PDF file size: 10 MB */
+const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
 export async function POST(request: NextRequest) {
   try {
+    // Verify authentication
+    const decodedToken = await verifyAuthToken(request);
+    if (!decodedToken) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const formData = await request.formData();
     const file = formData.get("file") as File | null;
 
@@ -16,6 +26,14 @@ export async function POST(request: NextRequest) {
     if (!file.name.toLowerCase().endsWith(".pdf")) {
       return NextResponse.json(
         { error: "Only PDF files are accepted" },
+        { status: 400 }
+      );
+    }
+
+    // Validate file size
+    if (file.size > MAX_FILE_SIZE) {
+      return NextResponse.json(
+        { error: "File too large. Maximum size is 10 MB." },
         { status: 400 }
       );
     }

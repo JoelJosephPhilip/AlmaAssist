@@ -1,17 +1,34 @@
 /* API route to extract individual questions from raw questionnaire text via OpenRouter */
 
 import { NextRequest, NextResponse } from "next/server";
+import { verifyAuthToken } from "@/lib/auth-helpers";
 
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 const MODEL = "google/gemini-2.0-flash-lite-001";
 
+/** Maximum text length: ~500 KB (roughly 100 pages of text) */
+const MAX_TEXT_LENGTH = 500_000;
+
 export async function POST(request: NextRequest) {
   try {
+    // Verify authentication
+    const decodedToken = await verifyAuthToken(request);
+    if (!decodedToken) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const { text } = await request.json();
 
     if (!text || text.trim().length === 0) {
       return NextResponse.json(
         { error: "No questionnaire text provided" },
+        { status: 400 }
+      );
+    }
+
+    if (text.length > MAX_TEXT_LENGTH) {
+      return NextResponse.json(
+        { error: "Text too long. Please use a shorter document." },
         { status: 400 }
       );
     }
