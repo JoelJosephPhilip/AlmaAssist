@@ -2,7 +2,7 @@
 
 **AI-Powered Vendor Questionnaire Automation for EduVault SaaS**
 
-Answer vendor assessment questionnaires in minutes, not hours. AlmaAssist uses Gemini AI to read your reference documents and generate accurate, citation-backed answers automatically.
+Answer vendor assessment questionnaires in minutes, not hours. AlmaAssist uses AI (via OpenRouter) to read your reference documents and generate accurate, citation-backed answers automatically.
 
 ---
 
@@ -86,7 +86,7 @@ The account is pre-loaded with:
 | Styling | Tailwind CSS | 3.4.x |
 | Authentication | Firebase Auth | 10.x |
 | Database | Cloud Firestore | - |
-| AI | Gemini 2.0 Flash Lite (via OpenRouter) | - |
+| AI | Nvidia Nemotron Nano 9B (via OpenRouter) | Free |
 | PDF Parsing | pdf-parse | 1.x |
 | PDF Export | jsPDF | 2.x |
 
@@ -97,7 +97,7 @@ All services used offer free tiers with no credit card required:
 | Service | Cost | Limits |
 |---------|------|--------|
 | Firebase Spark | Free | 50K reads/day, 20K writes/day, 1GB storage |
-| OpenRouter (Gemini Flash Lite) | Free | Pay-per-token, very low cost |
+| OpenRouter (Nemotron Nano Free) | Free | $0/token, rate-limited (~20 req/min) |
 | Vercel Hosting | Free | 100GB bandwidth, unlimited deployments |
 
 ---
@@ -108,7 +108,7 @@ All services used offer free tiers with no credit card required:
 
 - ✅ **User Authentication** — Email/password signup and login via Firebase Auth
 - ✅ **PDF Upload & Parsing** — Upload questionnaire PDF + up to 8 reference document PDFs
-- ✅ **AI Question Extraction** — Gemini automatically identifies individual questions from the questionnaire
+- ✅ **AI Question Extraction** — AI automatically identifies individual questions from the questionnaire
 - ✅ **RAG Answer Generation** — Full-context RAG generates answers grounded in your reference documents
 - ✅ **Confidence Scores** — Visual indicator of answer reliability (High / Medium / Low, color-coded)
 - ✅ **Evidence Snippets** — See the exact passage from reference docs that supports each answer
@@ -118,8 +118,11 @@ All services used offer free tiers with no credit card required:
 - ✅ **Questionnaire Management** — Rename and delete questionnaires from the dashboard
 - ✅ **Animated Landing Page** — 3D interactive mockup with CSS-only animations
 
-### Nice-to-Have Features
+### Advanced Features
 
+- ✅ **Bring Your Own Key (BYOK)** — Users can enter their own OpenRouter API key from the dashboard, with test/save/remove functionality. Keys are stored securely in Firestore and used in place of the default server key.
+- ✅ **Context Mode Toggle** — Switch between Compact (~10K tokens) and Full (~50K tokens) context modes when generating answers, giving control over token usage vs. answer quality
+- ✅ **Token Warning Banner** — Amber warning notification when answer generation fails due to token or credit limitations, with clear guidance on next steps
 - ✅ **Partial Regeneration** — Select specific questions to re-generate without redoing the entire questionnaire
 - ✅ **Server-side Auth on All Routes** — All API endpoints verify Firebase ID tokens
 - ✅ **Input Validation** — 10MB file size limit, 500KB text limit, 20 question cap
@@ -340,7 +343,7 @@ Add your OpenRouter API key to `.env.local`:
 OPENROUTER_API_KEY=sk-or-v1-...your-actual-key-here
 ```
 
-The app uses the `google/gemini-2.0-flash-lite-001` model via OpenRouter, which works globally (unlike the direct Gemini API which is blocked in some regions).
+The app uses the `nvidia/nemotron-nano-9b-v2:free` model via OpenRouter by default. This is a free model ($0 per token) with 128K context window. Users can also bring their own OpenRouter API key and use any model. OpenRouter works globally (unlike the direct Gemini API which is blocked in some regions).
 
 ---
 
@@ -366,8 +369,10 @@ The app uses the `google/gemini-2.0-flash-lite-001` model via OpenRouter, which 
      - Technical specifications
      - Support SLAs
 
-4. **Generate Answers**
+4. **Configure & Generate Answers**
    - Questions are automatically extracted from the questionnaire
+   - Choose context mode: **Compact** (faster, less tokens) or **Full** (more thorough)
+   - Optionally add your own OpenRouter API key from the dashboard (BYOK)
    - Click "Generate Answers"
    - Wait for AI processing (~10–30 seconds)
 
@@ -434,7 +439,8 @@ alma-assist/
 │   │   ├── api/                      # API routes
 │   │   │   ├── documents/parse/      # PDF text extraction (auth + 10MB limit)
 │   │   │   ├── generate/             # RAG answer generation (auth + ownership)
-│   │   │   └── questionnaire/process/ # Question extraction (auth + 500KB limit)
+│   │   │   ├── questionnaire/process/ # Question extraction (auth + 500KB limit)
+│   │   │   └── test-key/             # BYOK API key test/save/remove
 │   │   ├── dashboard/
 │   │   │   ├── new/                  # Upload page
 │   │   │   └── questionnaire/[id]/   # Review/edit page
@@ -455,7 +461,8 @@ alma-assist/
 │   │   ├── firebase.ts               # Firebase client SDK (lazy init)
 │   │   ├── firebase-admin.ts         # Firebase Admin SDK (lazy init)
 │   │   ├── auth-helpers.ts           # Token verification helper
-│   │   ├── gemini.ts                 # OpenRouter AI client
+│   │   ├── gemini.ts                 # OpenRouter AI client (context truncation, BYOK support)
+│   │   ├── resolve-api-key.ts        # Resolves user or default OpenRouter API key
 │   │   └── pdf-export.ts             # jsPDF export utility
 │   │
 │   └── types/                        # TypeScript types
@@ -504,6 +511,19 @@ npm install
 - Check API key is valid on [OpenRouter](https://openrouter.ai/keys)
 - Ensure you haven't exceeded rate limits
 - Try again after a few seconds
+
+#### "Insufficient credits" or 402 Error
+
+- The free model (`nvidia/nemotron-nano-9b-v2:free`) requires no credits
+- If using a paid model, add credits at [OpenRouter Credits](https://openrouter.ai/credits)
+- Try switching to Compact context mode to reduce token usage
+- Or use BYOK — add your own API key from the dashboard
+
+#### "Prompt tokens limit exceeded"
+
+- Your reference documents are too large for the model's context window
+- Switch to **Compact** context mode on the questionnaire page
+- Or reduce the number/size of reference documents
 
 #### "Port 3000 already in use"
 
@@ -685,7 +705,7 @@ Built with:
 
 - [Next.js](https://nextjs.org/) — The React Framework
 - [Firebase](https://firebase.google.com/) — App development platform
-- [Gemini AI](https://ai.google.dev/) — Google's generative AI (via OpenRouter)
+- [OpenRouter AI](https://openrouter.ai/) — AI model gateway (Nvidia Nemotron Nano free model)
 - [Tailwind CSS](https://tailwindcss.com/) — Utility-first CSS framework
 - [jsPDF](https://github.com/parallax/jsPDF) — PDF generation library
 - [pdf-parse](https://github.com/ibash/pdf-parse) — PDF text extraction
