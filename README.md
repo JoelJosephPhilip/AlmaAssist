@@ -52,7 +52,7 @@ This is a real problem that university vendors face — procurement teams send l
 
 ## Live Demo
 
-**Production URL**: [https://alma-assist-next.vercel.app](https://alma-assist-next.vercel.app/)
+**Production URL**: [https://alma-assist-new.vercel.app/](https://alma-assist-new.vercel.app/)
 
 ### Demo Account
 
