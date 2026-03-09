@@ -82,7 +82,7 @@ export default function LandingPage() {
             </div>
 
             {/* Trust indicators */}
-            <div className="mt-12 flex items-center justify-center gap-8 text-sm text-gray-400">
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-sm text-gray-400">
               <span className="flex items-center gap-1.5">
                 <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                 No credit card
@@ -304,7 +304,7 @@ function AppMockup() {
               <div className="w-3 h-3 rounded-full bg-green-400 shadow-inner" />
             </div>
             <div className="flex-1 flex justify-center">
-              <div className="bg-white rounded-lg border border-gray-200 px-4 py-1.5 text-xs text-gray-400 w-80 text-center shadow-sm">
+              <div className="bg-white rounded-lg border border-gray-200 px-4 py-1.5 text-xs text-gray-400 w-48 sm:w-80 text-center shadow-sm truncate">
                 <span className="text-gray-300 mr-1">🔒</span>
                 almaassist.eduvault.io/dashboard
               </div>
@@ -327,7 +327,7 @@ function AppMockup() {
           </div>
 
           {/* App content — scenes stacked */}
-          <div className="relative bg-gray-50 overflow-hidden" style={{ minHeight: "340px" }}>
+          <div className="relative bg-gray-50 overflow-hidden hidden sm:block" style={{ minHeight: "340px" }}>
 
             {/* ——— Scene 1: Upload ——— */}
             <div className="absolute inset-0 p-6 animate-scene1">
@@ -447,7 +447,7 @@ function AppMockup() {
               </div>
 
               {/* Coverage bar */}
-              <div className="bg-white rounded-lg border border-gray-200 p-3 mb-4 flex items-center gap-5 text-xs">
+              <div className="bg-white rounded-lg border border-gray-200 p-3 mb-4 flex flex-wrap items-center gap-3 sm:gap-5 text-xs">
                 <span className="font-medium text-gray-900">Coverage:</span>
                 <span className="flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-gray-400" />
@@ -490,7 +490,7 @@ function AppMockup() {
           </div>
 
           {/* Step indicators at bottom */}
-          <div className="bg-white border-t border-gray-200 px-6 py-3 flex items-center justify-center gap-8">
+          <div className="bg-white border-t border-gray-200 px-6 py-3 hidden sm:flex items-center justify-center gap-8">
             <StepIndicatorDot label="Upload" sceneClass="animate-scene1" />
             <StepIndicatorDot label="Generate" sceneClass="animate-scene2" />
             <StepIndicatorDot label="Review" sceneClass="animate-scene3" />

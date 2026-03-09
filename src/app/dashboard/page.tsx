@@ -217,7 +217,7 @@ function DashboardContent() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Page header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
             <p className="mt-1 text-gray-600">
@@ -226,7 +226,7 @@ function DashboardContent() {
           </div>
           <Link
             href="/dashboard/new"
-            className="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm"
+            className="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm text-center"
           >
             New Questionnaire
           </Link>
@@ -278,7 +278,7 @@ function DashboardContent() {
               </p>
 
               {hasStoredKey ? (
-                <div className="flex items-center gap-3">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-3">
                   <div className="flex-1 bg-green-50 border border-green-200 rounded-lg px-4 py-3 text-sm text-green-800">
                     ✓ Your custom API key is active. All AI requests use your key.
                   </div>
@@ -291,7 +291,7 @@ function DashboardContent() {
                 </div>
               ) : (
                 <div className="space-y-3">
-                  <div className="flex gap-2">
+                  <div className="flex flex-col sm:flex-row gap-2">
                     <input
                       type="password"
                       value={apiKeyInput}
@@ -303,10 +303,11 @@ function DashboardContent() {
                       placeholder="sk-or-v1-..."
                       className="flex-1 border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
                     />
-                    <button
-                      onClick={handleTestKey}
-                      disabled={!apiKeyInput.trim() || keyStatus === "testing"}
-                      className="bg-gray-900 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+                    <div className="flex gap-2">
+                      <button
+                        onClick={handleTestKey}
+                        disabled={!apiKeyInput.trim() || keyStatus === "testing"}
+                        className="bg-gray-900 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
                     >
                       {keyStatus === "testing" ? (
                         <span className="flex items-center gap-2">
@@ -325,6 +326,7 @@ function DashboardContent() {
                         Save & Use
                       </button>
                     )}
+                  </div>
                   </div>
                   {keyMessage && (
                     <p
@@ -375,7 +377,7 @@ function DashboardContent() {
                 key={q.id}
                 className="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-md transition-shadow"
               >
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <Link
                     href={`/dashboard/questionnaire/${q.id}`}
                     className="flex-1 min-w-0"
@@ -387,7 +389,7 @@ function DashboardContent() {
                       Created {q.createdAt.toLocaleDateString()}
                     </p>
                   </Link>
-                  <div className="flex items-center gap-3 ml-4 shrink-0">
+                  <div className="flex items-center gap-3 shrink-0">
                     <StatusBadge status={q.status} />
                     <button
                       onClick={() => handleRename(q.id!, q.title)}

@@ -269,9 +269,9 @@ function ReviewContent() {
         )}
 
         {/* Context Mode Toggle */}
-        <div className="mb-6 flex items-center gap-3">
+        <div className="mb-6 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
           <span className="text-sm font-medium text-gray-700">Context Mode:</span>
-          <div className="inline-flex rounded-lg border border-gray-200 bg-white p-0.5">
+          <div className="inline-flex rounded-lg border border-gray-200 bg-white p-0.5 self-start">
             <button
               onClick={() => setContextMode("compact")}
               className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
@@ -303,7 +303,7 @@ function ReviewContent() {
         {/* Coverage Summary */}
         {hasAnswers && (
           <div className="bg-white rounded-xl border border-gray-200 p-4 mb-6">
-            <div className="flex items-center gap-6 text-sm">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-sm">
               <div className="flex items-center gap-2">
                 <span className="font-medium text-gray-900">Coverage:</span>
               </div>
@@ -413,7 +413,7 @@ function QuestionCard({
   return (
     <div className={`bg-white rounded-xl border ${selected ? 'border-amber-400 ring-2 ring-amber-100' : 'border-gray-200'} p-6`}>
       {/* Question text */}
-      <div className="flex items-start justify-between gap-4 mb-4">
+      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-4 mb-4">
         <div className="flex items-start gap-3">
           <input
             type="checkbox"
@@ -426,7 +426,7 @@ function QuestionCard({
             {question.text}
           </h3>
         </div>
-        <div className="flex items-center gap-2 flex-shrink-0">
+        <div className="flex items-center gap-2 flex-shrink-0 ml-7 sm:ml-0">
           {/* Edited badge */}
           {question.edited && (
             <span className="text-xs bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full">
@@ -484,7 +484,7 @@ function QuestionCard({
               >
                 {question.answer}
               </p>
-              <div className="flex items-center gap-4 mt-3">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 mt-3">
                 {/* Citation badge */}
                 {question.citation && (
                   <span className="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded">
