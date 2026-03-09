@@ -32,15 +32,33 @@ async function chatCompletion(prompt: string): Promise<string> {
   return data.choices?.[0]?.message?.content || "";
 }
 
+/** Rough token estimate: ~4 characters per token */
+const COMPACT_CONTEXT_CHARS = 40_000; // ~10K tokens — works with limited credits
+const FULL_CONTEXT_CHARS = 200_000;   // ~50K tokens — needs sufficient credits
+
 /** Generate an answer for a single question using reference documents.
  *  Returns structured answer with citation, confidence, and evidence snippet.
  *  If the answer is not found in docs, returns "Not found in references." */
 export async function generateAnswer(
   question: string,
-  referenceDocs: { title: string; content: string }[]
+  referenceDocs: { title: string; content: string }[],
+  compact: boolean = true
 ): Promise<GeneratedAnswer> {
+  const maxChars = compact ? COMPACT_CONTEXT_CHARS : FULL_CONTEXT_CHARS;
+
+  // Truncate reference docs to fit within token budget
+  let totalChars = 0;
+  const truncatedDocs: { title: string; content: string }[] = [];
+  for (const doc of referenceDocs) {
+    const remaining = maxChars - totalChars;
+    if (remaining <= 0) break;
+    const content = doc.content.slice(0, remaining);
+    truncatedDocs.push({ title: doc.title, content });
+    totalChars += content.length;
+  }
+
   // Build the reference document context
-  const docsContext = referenceDocs
+  const docsContext = truncatedDocs
     .map((doc) => `--- Document: ${doc.title} ---\n${doc.content}`)
     .join("\n\n");
 

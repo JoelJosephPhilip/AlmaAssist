@@ -39,6 +39,8 @@ function ReviewContent() {
   const [genProgress, setGenProgress] = useState("");
   const [error, setError] = useState("");
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
+  const [contextMode, setContextMode] = useState<"compact" | "full">("compact");
+  const [tokenWarning, setTokenWarning] = useState("");
 
   /** Fetch questionnaire and questions from Firestore */
   const fetchData = useCallback(async () => {
@@ -90,11 +92,12 @@ function ReviewContent() {
     const isPartial = questionIds && questionIds.length > 0;
     setGenProgress(isPartial ? `Regenerating ${questionIds.length} question(s)...` : "Generating answers...");
     setError("");
+    setTokenWarning("");
 
     try {
       const { auth } = initFirebase();
       const token = await auth.currentUser?.getIdToken();
-      const body: Record<string, unknown> = { questionnaireId };
+      const body: Record<string, unknown> = { questionnaireId, contextMode };
       if (isPartial) body.questionIds = questionIds;
 
       const response = await fetch("/api/generate", {
@@ -113,6 +116,18 @@ function ReviewContent() {
 
       const data = await response.json();
       setGenProgress(data.message);
+
+      // Show warning if some questions failed
+      const failedCount = data.results?.filter((r: { success: boolean }) => !r.success).length || 0;
+      if (failedCount > 0) {
+        const totalCount = data.results?.length || 0;
+        setTokenWarning(
+          `${failedCount} of ${totalCount} question(s) could not be answered. ` +
+          (contextMode === "full"
+            ? "Your reference documents may exceed your API credit limit. Try switching to Compact mode or add more credits at openrouter.ai/settings/credits."
+            : "Try adding more credits at openrouter.ai/settings/credits, or switch to Full mode if you have sufficient credits for better quality.")
+        );
+      }
 
       // Clear selection after successful regeneration
       if (isPartial) setSelectedIds(new Set());
@@ -243,6 +258,47 @@ function ReviewContent() {
             {error}
           </div>
         )}
+
+        {tokenWarning && (
+          <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-800 flex items-start gap-2">
+            <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.168 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+            </svg>
+            <span>{tokenWarning}</span>
+          </div>
+        )}
+
+        {/* Context Mode Toggle */}
+        <div className="mb-6 flex items-center gap-3">
+          <span className="text-sm font-medium text-gray-700">Context Mode:</span>
+          <div className="inline-flex rounded-lg border border-gray-200 bg-white p-0.5">
+            <button
+              onClick={() => setContextMode("compact")}
+              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
+                contextMode === "compact"
+                  ? "bg-blue-600 text-white shadow-sm"
+                  : "text-gray-600 hover:text-gray-900"
+              }`}
+            >
+              Compact
+            </button>
+            <button
+              onClick={() => setContextMode("full")}
+              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
+                contextMode === "full"
+                  ? "bg-blue-600 text-white shadow-sm"
+                  : "text-gray-600 hover:text-gray-900"
+              }`}
+            >
+              Full
+            </button>
+          </div>
+          <span className="text-xs text-gray-500">
+            {contextMode === "compact"
+              ? "Uses less tokens — works with limited credits, may reduce answer quality"
+              : "Sends full reference docs — better answers, requires more API credits"}
+          </span>
+        </div>
 
         {/* Coverage Summary */}
         {hasAnswers && (

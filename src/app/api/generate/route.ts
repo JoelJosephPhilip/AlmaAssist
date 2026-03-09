@@ -13,13 +13,15 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const { questionnaireId, questionIds } = await request.json();
+    const { questionnaireId, questionIds, contextMode } = await request.json();
     if (!questionnaireId) {
       return NextResponse.json(
         { error: "Missing questionnaireId" },
         { status: 400 }
       );
     }
+
+    const useCompactContext = contextMode !== "full";
 
     // questionIds is an optional string[] — if provided, only regenerate those questions
     const isPartial = Array.isArray(questionIds) && questionIds.length > 0;
@@ -91,7 +93,7 @@ export async function POST(request: NextRequest) {
     for (const questionDoc of targetDocs) {
       try {
         const questionText = questionDoc.data().text;
-        const answer = await generateAnswer(questionText, referenceDocs);
+        const answer = await generateAnswer(questionText, referenceDocs, useCompactContext);
 
         // Update the question document with the generated answer
         await adminDb.collection("questions").doc(questionDoc.id).update({
