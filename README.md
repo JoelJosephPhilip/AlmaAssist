@@ -2,22 +2,74 @@
 
 **AI-powered vendor assessment questionnaire automation** — Upload questionnaires and reference documents, and let AI generate citation-grounded answers in real time.
 
-## Industry & Company
+---
 
-- **Industry**: EdTech (Education Technology)
-- **Company**: **EduVault** — a fictional B2B EdTech SaaS company that provides a secure student data platform to universities. During procurement, universities send vendor assessment questionnaires covering security, compliance, and operational practices. EduVault's GTM (Go-To-Market) team currently fills these out manually — a time-consuming, repetitive process that AlmaAssist automates using RAG-based AI.
+## What I Built
 
-## Features
+AlmaAssist is a full-stack web application that automates responding to vendor assessment questionnaires using RAG (Retrieval-Augmented Generation). In B2B SaaS, companies regularly receive lengthy compliance/security questionnaires from prospective customers during procurement. Filling these out manually is slow and repetitive — AlmaAssist solves this by letting users upload a questionnaire PDF alongside reference documents, then using AI to generate grounded, citation-backed answers.
 
-- **PDF Upload & Parsing** — Upload any questionnaire PDF + up to 8 reference document PDFs
-- **AI Question Extraction** — Gemini 2.0 Flash Lite (via OpenRouter) automatically identifies individual questions from the questionnaire
-- **RAG Answer Generation** — Full-context RAG generates answers grounded in your reference documents
-- **Confidence Scores** — Each answer shows High / Medium / Low confidence
-- **Evidence Snippets** — View the exact passage from reference docs that supports each answer
-- **Inline Editing** — Edit any generated answer before exporting
-- **Coverage Summary** — See at-a-glance stats on how many questions were answered
-- **PDF Export** — Export the completed questionnaire as a formatted PDF
-- **Questionnaire Management** — Rename and delete questionnaires from the dashboard
+**Industry & Company Context**: EduVault — a fictional B2B EdTech SaaS company that provides a secure student data platform to universities. Universities send vendor assessment questionnaires covering security, compliance, and operational practices. EduVault's GTM team currently fills these out manually; AlmaAssist automates this.
+
+### Core Workflow
+1. **Upload** a questionnaire PDF and up to 8 reference document PDFs
+2. **AI extracts** individual questions from the questionnaire automatically
+3. **RAG generates** answers grounded in the reference documents, with confidence scores and evidence snippets
+4. **Review, edit, and export** the completed questionnaire as a PDF
+
+### Key Features
+- PDF upload & text extraction (questionnaire + reference docs)
+- AI-powered question extraction (Gemini 2.0 Flash Lite via OpenRouter)
+- Full-context RAG answer generation with confidence scores (High/Medium/Low)
+- Evidence snippets showing the exact reference passage supporting each answer
+- Partial regeneration — select specific questions to re-generate without redoing the entire questionnaire
+- Inline answer editing before export
+- Coverage summary with at-a-glance stats
+- PDF export of the completed questionnaire (jsPDF)
+- Dashboard with questionnaire management (rename, delete)
+- Firebase Authentication (email/password) with protected routes
+- Animated landing page with 3D interactive mockup
+
+---
+
+## Assumptions
+
+1. **Questionnaires are text-based PDFs** — The app uses `pdf-parse` for text extraction, so image-based/scanned PDFs won't work without OCR (not implemented).
+2. **Reference documents contain the answers** — RAG can only generate answers from the content it's given. If the uploaded reference docs don't cover a question, the AI will flag low confidence.
+3. **Full-context RAG is sufficient** — All reference document text is passed to the AI model in a single prompt (no vector DB / chunking). This works well for typical questionnaire reference docs but won't scale to hundreds of pages.
+4. **20 questions per questionnaire** — Capped to keep AI calls manageable and response times reasonable.
+5. **8 reference documents max** — Enough for typical use while staying within model context limits.
+6. **Users have Firebase/OpenRouter accounts** — The app requires Firebase for auth/storage and an OpenRouter API key for AI.
+
+---
+
+## Trade-offs
+
+| Decision | Benefit | Cost |
+|----------|---------|------|
+| **Full-context RAG (no vector DB)** | Simpler architecture, no embedding pipeline, no vector store costs | Won't scale beyond ~100 pages of reference text; higher per-request token usage |
+| **OpenRouter instead of direct Gemini API** | Works globally (Gemini direct API is blocked in India); easy model switching | Adds a proxy hop; slight latency increase |
+| **Firebase Auth + Firestore** | Fast to set up, free tier generous, real-time listeners | Vendor lock-in; Firestore's document model requires denormalization |
+| **Server-side PDF parsing** | Simple `pdf-parse` integration, no client-side complexity | Can't handle scanned/image PDFs; large PDFs block the API route |
+| **CSS-only landing page animations** | Zero JS bundle cost, no animation library dependency | Limited to CSS transforms/keyframes; less interactive than Framer Motion |
+| **jsPDF for export** | Client-side generation, no server round-trip | Limited formatting control compared to server-side PDF generation (Puppeteer, etc.) |
+| **No rate limiting** | Simpler implementation | Vulnerable to abuse if deployed publicly without additional infrastructure |
+
+---
+
+## What I Would Improve with More Time
+
+1. **Vector-based RAG with chunking** — Replace full-context RAG with a proper embedding pipeline (e.g., OpenAI embeddings + Pinecone/ChromaDB) to handle large document sets and improve retrieval precision.
+2. **OCR support** — Add Tesseract.js or a cloud OCR API to support scanned PDF questionnaires.
+3. **Rate limiting & abuse prevention** — Add per-user rate limits on API routes (e.g., using Upstash Redis) to prevent AI endpoint abuse.
+4. **Streaming responses** — Stream AI responses token-by-token instead of waiting for the full response, improving perceived latency.
+5. **Batch processing** — Allow processing multiple questionnaires in parallel with a job queue.
+6. **Answer history & versioning** — Track edits over time so users can revert or compare answer versions.
+7. **Team collaboration** — Share questionnaires across team members with role-based access (viewer, editor, admin).
+8. **Template system** — Save and reuse answers for frequently asked questions across different questionnaires.
+9. **Better PDF export** — Use a server-side rendering approach (Puppeteer or React-PDF) for richer formatting, tables, and branding.
+10. **E2E tests** — Add Playwright or Cypress tests covering the full upload → generate → review → export workflow.
+
+---
 
 ## Tech Stack
 
