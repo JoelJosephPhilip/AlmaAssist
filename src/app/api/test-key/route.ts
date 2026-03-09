@@ -5,7 +5,7 @@ import { verifyAuthToken } from "@/lib/auth-helpers";
 import { getAdminDb } from "@/lib/firebase-admin";
 
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
-const TEST_MODEL = "google/gemini-2.0-flash-lite-001";
+const TEST_MODEL = "nvidia/nemotron-nano-9b-v2:free";
 
 export async function POST(request: NextRequest) {
   try {

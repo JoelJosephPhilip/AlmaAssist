@@ -3,7 +3,7 @@
 import { GeneratedAnswer } from "@/types";
 
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
-const MODEL = "google/gemini-2.0-flash-lite-001";
+const MODEL = "nvidia/nemotron-nano-9b-v2:free";
 
 /** Call OpenRouter chat completions API */
 async function chatCompletion(prompt: string, apiKey?: string): Promise<string> {

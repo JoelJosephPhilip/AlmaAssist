@@ -5,7 +5,7 @@ import { verifyAuthToken } from "@/lib/auth-helpers";
 import { resolveApiKey } from "@/lib/resolve-api-key";
 
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
-const MODEL = "google/gemini-2.0-flash-lite-001";
+const MODEL = "nvidia/nemotron-nano-9b-v2:free";
 
 /** Maximum text length: ~500 KB (roughly 100 pages of text) */
 const MAX_TEXT_LENGTH = 500_000;
