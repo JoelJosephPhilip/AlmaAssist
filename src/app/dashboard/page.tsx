@@ -10,7 +10,6 @@ import {
   getDocs,
   doc,
   updateDoc,
-  deleteDoc,
   writeBatch,
 } from "firebase/firestore";
 import { initFirebase } from "@/lib/firebase";

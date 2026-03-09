@@ -38,6 +38,7 @@ function ReviewContent() {
   const [generating, setGenerating] = useState(false);
   const [genProgress, setGenProgress] = useState("");
   const [error, setError] = useState("");
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
 
   /** Fetch questionnaire and questions from Firestore */
   const fetchData = useCallback(async () => {
@@ -82,23 +83,27 @@ function ReviewContent() {
   }, [fetchData]);
 
   /** Trigger AI answer generation for all questions */
-  async function handleGenerate() {
+  async function handleGenerate(questionIds?: string[]) {
     if (!user) return;
 
     setGenerating(true);
-    setGenProgress("Generating answers...");
+    const isPartial = questionIds && questionIds.length > 0;
+    setGenProgress(isPartial ? `Regenerating ${questionIds.length} question(s)...` : "Generating answers...");
     setError("");
 
     try {
       const { auth } = initFirebase();
       const token = await auth.currentUser?.getIdToken();
+      const body: Record<string, unknown> = { questionnaireId };
+      if (isPartial) body.questionIds = questionIds;
+
       const response = await fetch("/api/generate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ questionnaireId }),
+        body: JSON.stringify(body),
       });
 
       if (!response.ok) {
@@ -108,6 +113,9 @@ function ReviewContent() {
 
       const data = await response.json();
       setGenProgress(data.message);
+
+      // Clear selection after successful regeneration
+      if (isPartial) setSelectedIds(new Set());
 
       // Refresh questions to show generated answers
       await fetchData();
@@ -195,9 +203,9 @@ function ReviewContent() {
               {questions.length} questions
             </p>
           </div>
-          <div className="flex gap-3">
+          <div className="flex gap-3 flex-wrap">
             <button
-              onClick={handleGenerate}
+              onClick={() => handleGenerate()}
               disabled={generating}
               className="bg-blue-600 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm flex items-center"
             >
@@ -210,6 +218,15 @@ function ReviewContent() {
                 "Generate Answers"
               )}
             </button>
+            {selectedIds.size > 0 && (
+              <button
+                onClick={() => handleGenerate(Array.from(selectedIds))}
+                disabled={generating}
+                className="bg-amber-500 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-amber-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+              >
+                Regenerate Selected ({selectedIds.size})
+              </button>
+            )}
             {hasAnswers && (
               <button
                 onClick={handleExport}
@@ -270,6 +287,15 @@ function ReviewContent() {
               question={question}
               index={index}
               onSave={handleSaveAnswer}
+              selected={selectedIds.has(question.id!)}
+              onSelectToggle={(id) =>
+                setSelectedIds((prev) => {
+                  const next = new Set(prev);
+                  if (next.has(id)) next.delete(id);
+                  else next.add(id);
+                  return next;
+                })
+              }
             />
           ))}
         </div>
@@ -283,10 +309,14 @@ function QuestionCard({
   question,
   index,
   onSave,
+  selected,
+  onSelectToggle,
 }: {
   question: Question;
   index: number;
   onSave: (questionId: string, newAnswer: string) => void;
+  selected: boolean;
+  onSelectToggle: (id: string) => void;
 }) {
   const [editing, setEditing] = useState(false);
   const [editValue, setEditValue] = useState(question.answer || "");
@@ -325,13 +355,21 @@ function QuestionCard({
   const isNotFound = question.answer === "Not found in references.";
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-6">
+    <div className={`bg-white rounded-xl border ${selected ? 'border-amber-400 ring-2 ring-amber-100' : 'border-gray-200'} p-6`}>
       {/* Question text */}
       <div className="flex items-start justify-between gap-4 mb-4">
-        <h3 className="font-medium text-gray-900">
-          <span className="text-gray-400 mr-2">Q{index + 1}.</span>
-          {question.text}
-        </h3>
+        <div className="flex items-start gap-3">
+          <input
+            type="checkbox"
+            checked={selected}
+            onChange={() => question.id && onSelectToggle(question.id)}
+            className="mt-1 h-4 w-4 rounded border-gray-300 text-amber-500 focus:ring-amber-400"
+          />
+          <h3 className="font-medium text-gray-900">
+            <span className="text-gray-400 mr-2">Q{index + 1}.</span>
+            {question.text}
+          </h3>
+        </div>
         <div className="flex items-center gap-2 flex-shrink-0">
           {/* Edited badge */}
           {question.edited && (
