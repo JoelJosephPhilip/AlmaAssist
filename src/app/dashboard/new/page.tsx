@@ -27,13 +27,23 @@ function UploadContent() {
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");
 
+  /** Get the current user's auth token */
+  async function getToken(): Promise<string> {
+    const { auth } = initFirebase();
+    const token = await auth.currentUser?.getIdToken();
+    if (!token) throw new Error("Not authenticated");
+    return token;
+  }
+
   /** Parse a single PDF file via the API route */
   async function parsePdf(file: File): Promise<{ text: string; filename: string }> {
+    const token = await getToken();
     const formData = new FormData();
     formData.append("file", file);
 
     const response = await fetch("/api/documents/parse", {
       method: "POST",
+      headers: { Authorization: `Bearer ${token}` },
       body: formData,
     });
 
@@ -47,9 +57,13 @@ function UploadContent() {
 
   /** Extract questions from questionnaire text via Gemini API */
   async function extractQuestions(text: string): Promise<string[]> {
+    const token = await getToken();
     const response = await fetch("/api/questionnaire/process", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify({ text }),
     });
 
