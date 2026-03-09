@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getAdminDb } from "@/lib/firebase-admin";
 import { verifyAuthToken } from "@/lib/auth-helpers";
 import { generateAnswer } from "@/lib/gemini";
+import { resolveApiKey } from "@/lib/resolve-api-key";
 
 export async function POST(request: NextRequest) {
   try {
@@ -22,6 +23,17 @@ export async function POST(request: NextRequest) {
     }
 
     const useCompactContext = contextMode !== "full";
+
+    // Resolve user's API key (custom or default)
+    let userApiKey: string;
+    try {
+      userApiKey = await resolveApiKey(decodedToken.uid);
+    } catch {
+      return NextResponse.json(
+        { error: "No API key available. Please add your OpenRouter API key in the dashboard." },
+        { status: 400 }
+      );
+    }
 
     // questionIds is an optional string[] — if provided, only regenerate those questions
     const isPartial = Array.isArray(questionIds) && questionIds.length > 0;
@@ -93,7 +105,7 @@ export async function POST(request: NextRequest) {
     for (const questionDoc of targetDocs) {
       try {
         const questionText = questionDoc.data().text;
-        const answer = await generateAnswer(questionText, referenceDocs, useCompactContext);
+        const answer = await generateAnswer(questionText, referenceDocs, useCompactContext, userApiKey);
 
         // Update the question document with the generated answer
         await adminDb.collection("questions").doc(questionDoc.id).update({

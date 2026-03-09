@@ -2,6 +2,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { verifyAuthToken } from "@/lib/auth-helpers";
+import { resolveApiKey } from "@/lib/resolve-api-key";
 
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 const MODEL = "google/gemini-2.0-flash-lite-001";
@@ -33,12 +34,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const apiKey = process.env.OPENROUTER_API_KEY;
-    if (!apiKey) {
-      console.error("OPENROUTER_API_KEY is not set");
+    let apiKey: string;
+    try {
+      apiKey = await resolveApiKey(decodedToken.uid);
+    } catch {
       return NextResponse.json(
-        { error: "AI service not configured" },
-        { status: 500 }
+        { error: "No API key available. Please add your OpenRouter API key in the dashboard." },
+        { status: 400 }
       );
     }
 

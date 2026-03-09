@@ -6,15 +6,15 @@ const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 const MODEL = "google/gemini-2.0-flash-lite-001";
 
 /** Call OpenRouter chat completions API */
-async function chatCompletion(prompt: string): Promise<string> {
-  const apiKey = process.env.OPENROUTER_API_KEY;
-  if (!apiKey) throw new Error("OPENROUTER_API_KEY is not configured");
+async function chatCompletion(prompt: string, apiKey?: string): Promise<string> {
+  const key = apiKey || process.env.OPENROUTER_API_KEY;
+  if (!key) throw new Error("No API key available. Please add your OpenRouter API key in the dashboard.");
 
   const res = await fetch(OPENROUTER_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
+      Authorization: `Bearer ${key}`,
     },
     body: JSON.stringify({
       model: MODEL,
@@ -42,7 +42,8 @@ const FULL_CONTEXT_CHARS = 200_000;   // ~50K tokens — needs sufficient credit
 export async function generateAnswer(
   question: string,
   referenceDocs: { title: string; content: string }[],
-  compact: boolean = true
+  compact: boolean = true,
+  apiKey?: string
 ): Promise<GeneratedAnswer> {
   const maxChars = compact ? COMPACT_CONTEXT_CHARS : FULL_CONTEXT_CHARS;
 
@@ -83,7 +84,7 @@ Respond ONLY with valid JSON in this exact format (no markdown, no code blocks):
 If the answer is not found, respond with:
 {"answer": "Not found in references.", "citation": "", "confidence": "low", "evidenceSnippet": ""}`;
 
-  const responseText = await chatCompletion(prompt);
+  const responseText = await chatCompletion(prompt, apiKey);
 
   // Parse the JSON response, handling potential markdown wrapping
   const jsonMatch = responseText.match(/\{[\s\S]*\}/);
