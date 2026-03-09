@@ -48,8 +48,14 @@ function UploadContent() {
     });
 
     if (!response.ok) {
-      const data = await response.json();
-      throw new Error(data.error || `Failed to parse ${file.name}`);
+      let errorMsg = `Failed to parse ${file.name}`;
+      try {
+        const data = await response.json();
+        errorMsg = data.error || errorMsg;
+      } catch {
+        // Response body may be empty on server errors
+      }
+      throw new Error(errorMsg);
     }
 
     return response.json();

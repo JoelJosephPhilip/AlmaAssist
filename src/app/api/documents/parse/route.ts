@@ -1,8 +1,10 @@
 /* API route to parse PDF files and extract text using pdf-parse */
 
 import { NextRequest, NextResponse } from "next/server";
-import { PDFParse } from "pdf-parse";
 import { verifyAuthToken } from "@/lib/auth-helpers";
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 /** Maximum PDF file size: 10 MB */
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
@@ -38,10 +40,11 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Convert file to buffer and parse
+    // Convert file to buffer and parse — dynamic import to avoid Vercel bundling issues
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
+    const { PDFParse } = await import("pdf-parse");
     const parser = new PDFParse({ data: buffer });
     const result = await parser.getText();
 
