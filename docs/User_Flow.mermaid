@@ -1,0 +1,42 @@
+%% AlmaAssist — User Flow Diagram
+
+graph TD
+    A[Landing Page] --> B{Authenticated?}
+    B -->|No| C[Sign Up Page]
+    B -->|No| D[Login Page]
+    C --> E[Create Account]
+    E --> F[Dashboard]
+    D --> F
+
+    F --> G[New Questionnaire]
+    F --> H[View Past Questionnaires]
+
+    G --> I[Upload Questionnaire PDF]
+    I --> J[Upload Reference Documents 1-8]
+    J --> K[Process Documents]
+    K --> L[pdf-parse extracts text]
+    L --> M[Gemini extracts questions]
+    M --> N[Store in Firestore]
+    N --> O[Review Page]
+
+    H --> O
+
+    O --> P[Click Generate Answers]
+    P --> Q[For Each Question]
+    Q --> R[Fetch all reference doc text]
+    R --> S[Send question + docs to Gemini]
+    S --> T[Gemini returns answer + citation + confidence + evidence]
+    T --> U[Update Firestore]
+    U --> Q
+
+    O --> V[Review Answers]
+    V --> W{Edit needed?}
+    W -->|Yes| X[Edit Answer Inline]
+    X --> Y[Save to Firestore]
+    Y --> V
+    W -->|No| Z[Export PDF]
+    Z --> AA[jsPDF generates PDF]
+    AA --> AB[Download Completed Questionnaire]
+
+    O --> AC[Coverage Summary]
+    AC --> AD[Total / Answered / Not Found]

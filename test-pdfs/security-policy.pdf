@@ -1,0 +1,821 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 5032
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+42.5196850393700814 785.1970866141732586 Td
+(EduVault — Security Policy) Tj
+T* () Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 739.8427559055118081 Td
+(Overview) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 708.6616535433070112 Td
+(EduVault maintains a comprehensive security program designed to protect student data and institutional) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 694.4884251968503577 Td
+(information. Our security practices are aligned with industry standards and regulatory requirements for educational) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 680.3151968503937042 Td
+(technology platforms.) Tj
+T* () Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 649.1340944881889072 Td
+(Data Encryption) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 612.2837007874015853 Td
+(Encryption at Rest) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 592.4411811023621794 Td
+(All student data stored in EduVault is encrypted at rest using AES-256 encryption. Database volumes, backups, and) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 578.2679527559055259 Td
+(file storage all use server-side encryption with keys managed through AWS Key Management Service \(KMS\).) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 564.0947244094487587 Td
+(Encryption keys are rotated annually.) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 535.748267716535338 Td
+(Encryption in Transit) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 515.9057480314959321 Td
+(All data transmitted between clients and EduVault servers is encrypted using TLS 1.2 or higher. API) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 501.7325196850393354 Td
+(communications, web application traffic, and internal service-to-service communication all use encrypted channels.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 487.559291338582625 Td
+(We enforce HSTS \(HTTP Strict Transport Security\) headers on all endpoints.) Tj
+T* () Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 456.378188976377885 Td
+(Access Control) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 419.5277952755905062 Td
+(Role-Based Access Control \(RBAC\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 399.6852755905511003 Td
+(EduVault implements role-based access control with the following default roles:) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 385.5120472440944468 Td
+(• Administrator: Full system access, user management, configuration) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 371.3388188976377364 Td
+(• Registrar: Access to academic records, enrollment data, reporting) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 357.1655905511810261 Td
+(• Faculty: Access to course-specific student records and grades) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 342.9923622047243725 Td
+(• Student: Access to own records only) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 328.8191338582676053 Td
+(• Auditor: Read-only access for compliance review) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 306.1419685039369369 Td
+(Custom roles can be created by administrators to meet specific institutional needs.) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 277.7955118110235162 Td
+(Multi-Factor Authentication \(MFA\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 257.952992125984224 Td
+(MFA is available for all user accounts and required for administrator accounts. Supported methods include:) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 243.7797637795274568 Td
+(• TOTP-based authenticator apps \(Google Authenticator, Authy\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 229.6065354330708033 Td
+(• SMS-based verification codes) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 215.4333070866141497 Td
+(• Hardware security keys \(FIDO2/WebAuthn\)) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 187.086850393700729 Td
+(Single Sign-On \(SSO\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 167.2443307086613231 Td
+(EduVault supports SSO integration via:) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 153.0711023622046696 Td
+(• SAML 2.0) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 138.8978740157479024 Td
+(• OpenID Connect \(OIDC\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 124.7246456692912489 Td
+(• CAS \(Central Authentication Service\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 110.5514173228345953 Td
+(• Shibboleth) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 87.8742519685038133 Td
+(SSO allows universities to use their existing identity provider \(e.g., Azure AD, Okta, Google Workspace\) for) Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 5136
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 785.1970866141732586 Td
+(seamless authentication.) Tj
+T* () Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 754.0159842519684616 Td
+(Network Security) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 717.1655905511811397 Td
+(Infrastructure) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 697.3230708661417339 Td
+(• Deployed on AWS with VPC isolation) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 683.1498425196850803 Td
+(• Web Application Firewall \(WAF\) protects against common web attacks) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 668.9766141732283131 Td
+(• DDoS protection via AWS Shield) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 654.8033858267716596 Td
+(• Regular penetration testing by third-party security firms \(annually\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 640.6301574803148924 Td
+(• Intrusion detection and prevention systems \(IDS/IPS\) monitor all traffic) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 612.2837007874015853 Td
+(Vulnerability Management) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 592.4411811023621794 Td
+(• Automated vulnerability scanning of all components \(weekly\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 578.2679527559055259 Td
+(• Critical vulnerabilities patched within 24 hours) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 564.0947244094487587 Td
+(• High vulnerabilities patched within 7 days) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 549.9214960629921052 Td
+(• Dependencies monitored for known CVEs using Dependabot and Snyk) Tj
+T* () Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 518.7403937007873083 Td
+(Incident Response) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 481.8899999999999295 Td
+(Data Breach Notification Policy) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 462.0474803149605805 Td
+(In the event of a confirmed data breach involving personally identifiable information \(PII\):) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 447.8742519685038701 Td
+(1. Within 24 hours: Internal incident response team activated, breach contained) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 433.7010236220471597 Td
+(2. Within 48 hours: Affected institutions notified via email and phone) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 419.5277952755905062 Td
+(3. Within 72 hours: Formal written notification sent to affected institutions including:) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 405.3545669291337958 Td
+(   - Nature and scope of the breach) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 391.1813385826770855 Td
+(   - Types of data involved) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 377.0081102362204319 Td
+(   - Steps taken to contain the breach) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 362.8348818897637216 Td
+(   - Remediation measures) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 348.6616535433070112 Td
+(   - Point of contact for questions) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 334.4884251968503008 Td
+(4. Within 30 days: Full incident report delivered to affected institutions) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 311.8112598425195756 Td
+(EduVault maintains cyber liability insurance and has a dedicated incident response team available 24/7.) Tj
+T* () Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 280.6301574803148924 Td
+(Security Certifications and Audits) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 257.952992125984224 Td
+(• SOC 2 Type II audit completed annually) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 243.7797637795274568 Td
+(• Annual third-party penetration testing) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 229.6065354330708033 Td
+(• Regular internal security assessments) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 215.4333070866141497 Td
+(• FERPA compliance verified annually) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 201.2600787401573825 Td
+(• Security awareness training for all employees \(quarterly\)) Tj
+T* () Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 170.0789763779526993 Td
+(Physical Security) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 147.4018110236219172 Td
+(• Data hosted in AWS data centers with SOC 2 physical security controls) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 133.2285826771652637 Td
+(• No student data stored on employee devices) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 119.0553543307086102 Td
+(• Employee laptops encrypted with full-disk encryption) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 104.882125984251843 Td
+(• Clean desk policy enforced at all office locations) Tj
+T* () Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R ]
+/Count 2
+>>
+endobj
+7 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+19 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+20 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 7 0 R
+/F2 8 0 R
+/F3 9 0 R
+/F4 10 0 R
+/F5 11 0 R
+/F6 12 0 R
+/F7 13 0 R
+/F8 14 0 R
+/F9 15 0 R
+/F10 16 0 R
+/F11 17 0 R
+/F12 18 0 R
+/F13 19 0 R
+/F14 20 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+21 0 obj
+<<
+/Producer (jsPDF 4.2.0)
+/CreationDate (D:20260309142718+05'30')
+>>
+endobj
+22 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 23
+0000000000 65535 f 
+0000010561 00000 n 
+0000012386 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000005236 00000 n 
+0000005373 00000 n 
+0000010624 00000 n 
+0000010749 00000 n 
+0000010879 00000 n 
+0000011012 00000 n 
+0000011150 00000 n 
+0000011274 00000 n 
+0000011403 00000 n 
+0000011535 00000 n 
+0000011671 00000 n 
+0000011799 00000 n 
+0000011926 00000 n 
+0000012055 00000 n 
+0000012188 00000 n 
+0000012290 00000 n 
+0000012636 00000 n 
+0000012722 00000 n 
+trailer
+<<
+/Size 23
+/Root 22 0 R
+/Info 21 0 R
+/ID [ <A44E38B6631AD0741B4EEB7A3245ABB8> <A44E38B6631AD0741B4EEB7A3245ABB8> ]
+>>
+startxref
+12826
+%%EOF

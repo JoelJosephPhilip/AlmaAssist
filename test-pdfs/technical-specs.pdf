@@ -1,0 +1,1023 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 5077
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+42.5196850393700814 785.1970866141732586 Td
+(EduVault — Technical Specifications) Tj
+T* () Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 739.8427559055118081 Td
+(Platform Architecture) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 708.6616535433070112 Td
+(EduVault is a cloud-native SaaS platform built on modern, scalable infrastructure.) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 680.3151968503937042 Td
+(Technology Stack) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 660.4726771653542983 Td
+(• Backend: Node.js with Express framework, running on AWS ECS \(Fargate\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 646.2994488188976447 Td
+(• Frontend: React single-page application hosted on AWS CloudFront) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 632.1262204724408775 Td
+(• Database: PostgreSQL on AWS RDS \(Multi-AZ deployment\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 617.952992125984224 Td
+(• Cache: Redis on AWS ElastiCache) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 603.7797637795274568 Td
+(• Search: Elasticsearch for full-text search of academic records) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 589.6065354330708033 Td
+(• Message Queue: AWS SQS for asynchronous processing) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 575.4333070866141497 Td
+(• File Storage: AWS S3 with server-side encryption) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 547.086850393700729 Td
+(Infrastructure) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 527.2443307086614368 Td
+(• Hosting Region: US-East-1 \(Virginia\) primary, US-West-2 \(Oregon\) disaster recovery) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 513.0711023622046696 Td
+(• Compute: AWS ECS Fargate \(serverless containers\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 498.8978740157479592 Td
+(• Load Balancing: AWS Application Load Balancer with auto-scaling) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 484.7246456692913057 Td
+(• CDN: AWS CloudFront for static assets and API acceleration) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 470.5514173228345953 Td
+(• DNS: AWS Route 53 with health checks and failover routing) Tj
+T* () Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 439.3703149606298552 Td
+(API) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 402.5199212598424765 Td
+(REST API) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 382.6774015748030706 Td
+(EduVault provides a RESTful API for institutional integrations:) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 368.5041732283464171 Td
+(• Base URL: `https://api.eduvault.io/v2/`) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 354.3309448818897067 Td
+(• Authentication: OAuth 2.0 with API keys) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 340.1577165354329964 Td
+(• Rate limits: 1,000 requests per minute per institution) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 325.9844881889763428 Td
+(• Response format: JSON) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 311.8112598425195756 Td
+(• Pagination: Cursor-based pagination for large datasets) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 297.6380314960629221 Td
+(• Versioning: URL-based versioning \(v1, v2\)) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 269.2915748031495013 Td
+(Webhook Events) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 249.4490551181102092 Td
+(EduVault supports webhooks for real-time event notifications:) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 235.2758267716534419 Td
+(• Student enrollment changes) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 221.1025984251967884 Td
+(• Grade submissions) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 206.9293700787401349 Td
+(• Record updates) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 192.7561417322833677 Td
+(• System alerts) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 164.4096850393699469 Td
+(SIS Integration) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 144.5671653543306547 Td
+(EduVault integrates with major Student Information Systems via:) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 130.3939370078738875 Td
+(• Banner by Ellucian: Native integration via Ethos API) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 116.220708661417234 Td
+(• PeopleSoft Campus Solutions: Custom connector) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 102.0474803149605805 Td
+(• Workday Student: REST API integration) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 87.8742519685038133 Td
+(• Jenzabar: Direct database connector) Tj
+T* () Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 4631
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 771.0238582677164914 Td
+(LMS Integration) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 751.1813385826771992 Td
+(• Canvas: LTI 1.3 and REST API integration) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 737.0081102362204319 Td
+(• Blackboard: LTI 1.3 and REST API integration) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 722.8348818897637784 Td
+(• Moodle: LTI 1.3 integration) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 708.6616535433070112 Td
+(• Brightspace \(D2L\): LTI 1.3 and Valence API) Tj
+T* () Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 677.480551181102328 Td
+(Third-Party Integrations) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 646.2994488188976447 Td
+(EduVault integrates with the following third-party services:) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 617.952992125984224 Td
+(Identity Providers) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 598.1104724409448181 Td
+(• Azure Active Directory) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 583.9372440944881646 Td
+(• Google Workspace) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 569.7640157480313974 Td
+(• Okta) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 555.5907874015747439 Td
+(• OneLogin) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 541.4175590551180903 Td
+(• Shibboleth / InCommon Federation) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 513.0711023622046696 Td
+(Reporting & Analytics) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 493.2285826771653205 Td
+(• Tableau \(direct database connector\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 479.0553543307086102 Td
+(• Power BI \(OData feed\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 464.8821259842518998 Td
+(• Custom report builder with CSV/PDF export) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 436.5356692913385359 Td
+(Communication) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 416.69314960629913 Td
+(• SMTP email integration \(configurable per institution\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 402.5199212598424765 Td
+(• SMS notifications via Twilio \(optional\)) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 374.1734645669290558 Td
+(Document Management) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 354.3309448818897067 Td
+(• Integration with institutional document management systems) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 340.1577165354329964 Td
+(• Support for PDF, DOCX, and image file uploads) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 325.9844881889763428 Td
+(• OCR capability for scanned documents) Tj
+T* () Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 294.8033858267715459 Td
+(Mobile Access) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 257.952992125984224 Td
+(Responsive Web Application) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 238.1104724409448181 Td
+(The EduVault web application is fully responsive and optimized for mobile devices:) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 223.9372440944881646 Td
+(• Responsive design adapts to screen sizes from 320px to 4K) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 209.7640157480313974 Td
+(• Touch-optimized interface for tablets and smartphones) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 195.5907874015747439 Td
+(• Progressive Web App \(PWA\) support for offline access to cached data) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 181.4175590551179766 Td
+(• Mobile-specific navigation patterns \(bottom nav, swipe gestures\)) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 153.0711023622046696 Td
+(Mobile App \(Coming Q3 2026\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 133.2285826771652637 Td
+(• Native iOS and Android applications planned) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 119.0553543307086102 Td
+(• Push notifications for important updates) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 104.882125984251843 Td
+(• Biometric authentication support) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 90.7088976377951894 Td
+(• Offline mode for frequently accessed records) Tj
+T* () Tj
+ET
+endstream
+endobj
+7 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 8 0 R
+>>
+endobj
+8 0 obj
+<<
+/Length 2627
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 779.5277952755905062 Td
+(Mobile Browser Support) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 759.6852755905511003 Td
+(• Safari \(iOS 14+\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 745.5120472440944468 Td
+(• Chrome \(Android 10+\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 731.3388188976377933 Td
+(• All modern mobile browsers supported) Tj
+T* () Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 700.15771653543311 Td
+(Performance) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 663.3073228346456744 Td
+(Uptime and Availability) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 643.4648031496062686 Td
+(• 99.9% uptime SLA \(see Support & SLA document for details\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 629.291574803149615 Td
+(• Planned maintenance windows: Sundays 2:00 AM - 6:00 AM ET \(monthly\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 615.1183464566928478 Td
+(• Maintenance notifications sent 7 days in advance) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 600.9451181102361943 Td
+(• Zero-downtime deployments for routine updates) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 572.5986614173227736 Td
+(Response Times) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 552.7561417322833677 Td
+(• API response time: < 200ms \(p95\) for standard queries) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 538.5829133858267141 Td
+(• Page load time: < 2 seconds for initial load) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 524.4096850393700606 Td
+(• Search queries: < 500ms for standard searches) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 510.2364566929133503 Td
+(• Report generation: < 30 seconds for standard reports) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 481.8899999999999295 Td
+(Scalability) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 462.0474803149605805 Td
+(• Horizontal auto-scaling based on load) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 447.8742519685038701 Td
+(• Designed to support institutions with up to 500,000 student records) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 433.7010236220471597 Td
+(• Concurrent user support: up to 10,000 per institution) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 419.5277952755905062 Td
+(• Burst capacity: 3x normal load) Tj
+T* () Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R 7 0 R ]
+/Count 3
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+19 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+20 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+21 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+22 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 9 0 R
+/F2 10 0 R
+/F3 11 0 R
+/F4 12 0 R
+/F5 13 0 R
+/F6 14 0 R
+/F7 15 0 R
+/F8 16 0 R
+/F9 17 0 R
+/F10 18 0 R
+/F11 19 0 R
+/F12 20 0 R
+/F13 21 0 R
+/F14 22 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+23 0 obj
+<<
+/Producer (jsPDF 4.2.0)
+/CreationDate (D:20260309142718+05'30')
+>>
+endobj
+24 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 25
+0000000000 65535 f 
+0000012917 00000 n 
+0000014750 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000005281 00000 n 
+0000005418 00000 n 
+0000010101 00000 n 
+0000010238 00000 n 
+0000012986 00000 n 
+0000013111 00000 n 
+0000013242 00000 n 
+0000013376 00000 n 
+0000013514 00000 n 
+0000013638 00000 n 
+0000013767 00000 n 
+0000013899 00000 n 
+0000014035 00000 n 
+0000014163 00000 n 
+0000014290 00000 n 
+0000014419 00000 n 
+0000014552 00000 n 
+0000014654 00000 n 
+0000015002 00000 n 
+0000015088 00000 n 
+trailer
+<<
+/Size 25
+/Root 24 0 R
+/Info 23 0 R
+/ID [ <2EE2AAD1DF9638036FE64CE7163188EB> <2EE2AAD1DF9638036FE64CE7163188EB> ]
+>>
+startxref
+15192
+%%EOF

@@ -1,0 +1,791 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 5384
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+42.5196850393700814 785.1970866141732586 Td
+(EduVault — Privacy & Compliance) Tj
+T* () Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 739.8427559055118081 Td
+(FERPA Compliance) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 708.6616535433070112 Td
+(EduVault is fully compliant with the Family Educational Rights and Privacy Act \(FERPA\). Our platform is designed to) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 694.4884251968503577 Td
+(protect the privacy of student education records.) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 666.1419685039369369 Td
+(FERPA Commitments) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 646.2994488188976447 Td
+(• EduVault acts as a "school official" with a "legitimate educational interest" under FERPA guidelines) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 632.1262204724408775 Td
+(• No student education records are disclosed to third parties without prior written consent from the institution) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 617.952992125984224 Td
+(• All employees with access to student data undergo FERPA training during onboarding and annually thereafter) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 603.7797637795274568 Td
+(• Students may request access to their own education records through their institution's designated process) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 589.6065354330708033 Td
+(• Parents of dependent students may access records through institutional procedures) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 561.2600787401574962 Td
+(Data Classification) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 541.4175590551180903 Td
+(EduVault classifies all data handled by the platform:) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 527.2443307086614368 Td
+(• Restricted: Student PII, grades, disciplinary records, financial aid data) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 513.0711023622046696 Td
+(• Confidential: Institutional configuration, API keys, internal reports) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 498.8978740157479592 Td
+(• Internal: Non-sensitive operational data, usage analytics \(aggregated\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 484.7246456692913057 Td
+(• Public: Marketing materials, public documentation) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 456.378188976377885 Td
+(Directory Information) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 436.5356692913385359 Td
+(EduVault does not independently designate directory information. Each institution configures which fields are) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 422.3624409448818255 Td
+(considered directory information per their FERPA policy.) Tj
+T* () Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 391.1813385826770855 Td
+(COPPA Compliance) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 360.0002362204724022 Td
+(While EduVault primarily serves higher education institutions, the platform does not knowingly collect personal) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 345.8270078740156919 Td
+(information from children under 13. If an institution serves K-12 students, a COPPA-specific data processing) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 331.6537795275589815 Td
+(addendum is executed.) Tj
+T* () Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 300.4726771653542983 Td
+(State Privacy Laws) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 269.2915748031495013 Td
+(EduVault monitors and complies with applicable state student privacy laws including:) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 255.1183464566928478 Td
+(• California: SOPIPA \(Student Online Personal Information Protection Act\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 240.9451181102361943 Td
+(• New York: Education Law 2-D) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 226.7718897637794271 Td
+(• Colorado: Student Data Transparency and Security Act) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 212.5986614173227736 Td
+(• Illinois: SOPPA \(Student Online Personal Protection Act\)) Tj
+T* () Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 181.4175590551179766 Td
+(GDPR Readiness) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 150.2364566929132934 Td
+(For institutions serving students from the European Economic Area \(EEA\):) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 136.0632283464566399 Td
+(• EduVault can execute a Data Processing Agreement \(DPA\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 121.8899999999998727 Td
+(• Data subject rights are supported \(access, rectification, erasure, portability\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 107.7167716535432191 Td
+(• Data processing is based on contractual necessity with the institution) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 93.5435433070865656 Td
+(• No data is transferred outside the agreed hosting region without adequate safeguards) Tj
+T* () Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 4615
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 776.69314960629913 Td
+(Data Processing Agreement) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 745.5120472440944468 Td
+(EduVault provides a standard Data Processing Agreement \(DPA\) to all institutional customers that includes:) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 731.3388188976377933 Td
+(• Scope and purpose of data processing) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 717.1655905511811397 Td
+(• Data retention and deletion terms) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 702.9923622047243725 Td
+(• Security obligations) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 688.819133858267719 Td
+(• Sub-processor disclosures) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 674.6459055118109518 Td
+(• Breach notification procedures) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 660.4726771653542983 Td
+(• Audit rights for institutions) Tj
+T* () Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 629.291574803149615 Td
+(Data Retention) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 592.4411811023621794 Td
+(During Active Contract) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 572.5986614173227736 Td
+(• All student records retained for the duration of the contract) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 558.42543307086612 Td
+(• Audit logs retained for 3 years) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 544.2522047244094665 Td
+(• System logs retained for 1 year) Tj
+T* () Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 515.9057480314959321 Td
+(After Contract Termination) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 496.0632283464566399 Td
+(• All institution data is deleted within 90 days of contract termination) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 481.8899999999999295 Td
+(• Institution may request a full data export in standard formats \(CSV, JSON\) before termination) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 467.716771653543276 Td
+(• Upon written request, data can be deleted within 30 days) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 453.5435433070865656 Td
+(• A certificate of data destruction is provided upon completion) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 439.3703149606298552 Td
+(• Backup data is purged within 120 days of contract termination) Tj
+T* () Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 408.1892125984251152 Td
+(Privacy by Design) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 377.0081102362204319 Td
+(EduVault follows privacy-by-design principles:) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 362.8348818897637216 Td
+(• Data minimization: Only collect data necessary for platform functionality) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 348.6616535433070112 Td
+(• Purpose limitation: Data used only for stated educational purposes) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 334.4884251968503008 Td
+(• Access controls: Least-privilege access model) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 320.3151968503935905 Td
+(• Anonymization: Analytics and reporting use aggregated, de-identified data) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 306.1419685039369369 Td
+(• Transparency: Clear privacy notices for all data collection points) Tj
+T* () Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 274.9608661417322537 Td
+(Sub-Processors) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 243.7797637795274568 Td
+(EduVault uses the following sub-processors:) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 229.6065354330708033 Td
+(• AWS: Cloud infrastructure and data hosting \(US regions\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 215.4333070866141497 Td
+(• SendGrid: Transactional email delivery \(no student PII in emails\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+51.0236220472441033 201.2600787401573825 Td
+(• Datadog: Application monitoring \(no student PII in logs\)) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 178.5829133858267141 Td
+(Institutions are notified 30 days before any new sub-processor is added. Institutions may object to new) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 164.4096850393699469 Td
+(sub-processors per the terms of the DPA.) Tj
+T* () Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R ]
+/Count 2
+>>
+endobj
+7 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+19 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+20 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 7 0 R
+/F2 8 0 R
+/F3 9 0 R
+/F4 10 0 R
+/F5 11 0 R
+/F6 12 0 R
+/F7 13 0 R
+/F8 14 0 R
+/F9 15 0 R
+/F10 16 0 R
+/F11 17 0 R
+/F12 18 0 R
+/F13 19 0 R
+/F14 20 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+21 0 obj
+<<
+/Producer (jsPDF 4.2.0)
+/CreationDate (D:20260309142718+05'30')
+>>
+endobj
+22 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 23
+0000000000 65535 f 
+0000010392 00000 n 
+0000012217 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000005588 00000 n 
+0000005725 00000 n 
+0000010455 00000 n 
+0000010580 00000 n 
+0000010710 00000 n 
+0000010843 00000 n 
+0000010981 00000 n 
+0000011105 00000 n 
+0000011234 00000 n 
+0000011366 00000 n 
+0000011502 00000 n 
+0000011630 00000 n 
+0000011757 00000 n 
+0000011886 00000 n 
+0000012019 00000 n 
+0000012121 00000 n 
+0000012467 00000 n 
+0000012553 00000 n 
+trailer
+<<
+/Size 23
+/Root 22 0 R
+/Info 21 0 R
+/ID [ <CB9F8E705F9885305A222306D3AB8847> <CB9F8E705F9885305A222306D3AB8847> ]
+>>
+startxref
+12657
+%%EOF
