@@ -229,7 +229,7 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="border-t border-gray-100 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 rounded-md bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center">
                 <span className="text-white font-bold text-xs">A</span>
@@ -238,6 +238,30 @@ export default function LandingPage() {
                 AlmaAssist
               </span>
               <span className="text-sm text-gray-400 ml-1">by EduVault</span>
+            </div>
+            <div className="flex items-center gap-5">
+              <a
+                href="https://www.linkedin.com/in/joel-joseph-philip/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-blue-600 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+              </a>
+              <a
+                href="https://github.com/JoelJosephPhilip"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-gray-900 transition-colors"
+                aria-label="GitHub"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
             </div>
             <p className="text-sm text-gray-400">
               © {new Date().getFullYear()} EduVault — Secure Student Data
@@ -250,114 +274,241 @@ export default function LandingPage() {
   );
 }
 
-/* ————————————————————— App Mockup Component ————————————————————— */
+/* ————————————————————— Animated 3D App Mockup ————————————————————— */
 
-/** CSS-only app mockup that previews the questionnaire review UI */
+/**
+ * 3D perspective mockup that auto-cycles through 3 scenes:
+ * Scene 1: Upload (drag PDFs)
+ * Scene 2: AI Processing (progress bar + typing)
+ * Scene 3: Review (answered question cards)
+ * Each scene plays for 4s in a 12s loop.
+ */
 function AppMockup() {
   return (
-    <div className="relative">
-      {/* Glow behind the mockup */}
-      <div className="absolute -inset-4 bg-gradient-to-r from-blue-100 via-indigo-100 to-purple-100 rounded-3xl blur-2xl opacity-60" />
+    <div className="relative" style={{ perspective: "2000px" }}>
+      {/* Animated glow behind the mockup */}
+      <div className="absolute -inset-6 bg-gradient-to-r from-blue-200 via-indigo-200 to-purple-200 rounded-3xl blur-3xl animate-mockup-glow" />
 
-      {/* Browser chrome */}
-      <div className="relative bg-white rounded-2xl shadow-2xl shadow-gray-900/10 border border-gray-200 overflow-hidden">
-        {/* Title bar */}
-        <div className="bg-gray-100 border-b border-gray-200 px-4 py-3 flex items-center gap-3">
-          <div className="flex gap-1.5">
-            <div className="w-3 h-3 rounded-full bg-red-400" />
-            <div className="w-3 h-3 rounded-full bg-yellow-400" />
-            <div className="w-3 h-3 rounded-full bg-green-400" />
-          </div>
-          <div className="flex-1 flex justify-center">
-            <div className="bg-white rounded-md border border-gray-200 px-4 py-1 text-xs text-gray-400 w-80 text-center">
-              localhost:3000/dashboard/questionnaire/abc123
-            </div>
-          </div>
-        </div>
+      {/* Floating 3D container */}
+      <div className="relative animate-mockup-float" style={{ transformStyle: "preserve-3d" }}>
+        {/* Reflection/shadow underneath */}
+        <div className="absolute -bottom-8 left-8 right-8 h-16 bg-gradient-to-b from-gray-900/5 to-transparent rounded-full blur-xl" />
 
-        {/* App header */}
-        <div className="bg-white border-b border-gray-200 px-6 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-md bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center">
-              <span className="text-white font-bold text-[10px]">A</span>
+        {/* Browser window */}
+        <div className="relative bg-white rounded-2xl shadow-2xl shadow-gray-900/15 border border-gray-200/80 overflow-hidden">
+          {/* Browser title bar */}
+          <div className="bg-gradient-to-b from-gray-50 to-gray-100 border-b border-gray-200 px-4 py-3 flex items-center gap-3">
+            <div className="flex gap-1.5">
+              <div className="w-3 h-3 rounded-full bg-red-400 shadow-inner" />
+              <div className="w-3 h-3 rounded-full bg-yellow-400 shadow-inner" />
+              <div className="w-3 h-3 rounded-full bg-green-400 shadow-inner" />
             </div>
-            <span className="text-sm font-bold text-gray-900">AlmaAssist</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="text-xs text-gray-400">admin@eduvault.io</span>
-            <span className="text-xs text-gray-400">Logout</span>
-          </div>
-        </div>
-
-        {/* App content */}
-        <div className="bg-gray-50 p-6">
-          {/* Title row */}
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <h3 className="text-sm font-bold text-gray-900">
-                University of Michigan — Security Assessment 2026
-              </h3>
-              <p className="text-xs text-gray-400 mt-0.5">12 questions</p>
-            </div>
-            <div className="flex gap-2">
-              <div className="bg-blue-600 text-white text-xs px-3 py-1.5 rounded-lg font-medium">
-                Generate Answers
-              </div>
-              <div className="bg-amber-500 text-white text-xs px-3 py-1.5 rounded-lg font-medium">
-                Regenerate Selected (2)
-              </div>
-              <div className="bg-white border border-gray-200 text-gray-600 text-xs px-3 py-1.5 rounded-lg font-medium">
-                Export PDF
+            <div className="flex-1 flex justify-center">
+              <div className="bg-white rounded-lg border border-gray-200 px-4 py-1.5 text-xs text-gray-400 w-80 text-center shadow-sm">
+                <span className="text-gray-300 mr-1">🔒</span>
+                almaassist.eduvault.io/dashboard
               </div>
             </div>
+            <div className="w-12" />
           </div>
 
-          {/* Coverage bar */}
-          <div className="bg-white rounded-lg border border-gray-200 p-3 mb-4 flex items-center gap-5 text-xs">
-            <span className="font-medium text-gray-900">Coverage:</span>
-            <span className="flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-gray-400" />
-              Total: <b>12</b>
-            </span>
-            <span className="flex items-center gap-1 text-green-700">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-              Answered: <b>10</b>
-            </span>
-            <span className="flex items-center gap-1 text-red-700">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
-              Not Found: <b>2</b>
-            </span>
+          {/* App header */}
+          <div className="bg-white border-b border-gray-200 px-6 py-3 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-md bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-sm">
+                <span className="text-white font-bold text-[10px]">A</span>
+              </div>
+              <span className="text-sm font-bold text-gray-900">AlmaAssist</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-xs text-gray-400">admin@eduvault.io</span>
+              <span className="text-xs text-gray-400 hover:text-gray-600">Logout</span>
+            </div>
           </div>
 
-          {/* Question cards */}
-          <div className="space-y-3">
-            <MockQuestionCard
-              num={1}
-              question="Does your organization encrypt data at rest and in transit?"
-              answer="Yes. EduVault encrypts all data at rest using AES-256 encryption and all data in transit using TLS 1.3. Database backups are also encrypted."
-              confidence="high"
-              citation="Security Policy v3.2"
-              selected={false}
-            />
-            <MockQuestionCard
-              num={2}
-              question="Describe your incident response procedures."
-              answer="EduVault follows a 4-phase incident response plan: Identification, Containment, Eradication, and Recovery. The security team is alerted within 15 minutes via PagerDuty..."
-              confidence="medium"
-              citation="Security Policy v3.2"
-              selected={true}
-            />
-            <MockQuestionCard
-              num={3}
-              question="What compliance certifications does your platform hold?"
-              answer="EduVault is SOC 2 Type II certified and FERPA compliant. Annual penetration tests are conducted by independent third parties."
-              confidence="high"
-              citation="Compliance Overview"
-              selected={false}
-            />
+          {/* App content — scenes stacked */}
+          <div className="relative bg-gray-50 overflow-hidden" style={{ minHeight: "340px" }}>
+
+            {/* ——— Scene 1: Upload ——— */}
+            <div className="absolute inset-0 p-6 animate-scene1">
+              <div className="mb-4">
+                <h3 className="text-sm font-bold text-gray-900">New Questionnaire</h3>
+                <p className="text-xs text-gray-400 mt-0.5">Upload your documents to get started</p>
+              </div>
+
+              {/* Upload zone */}
+              <div className="border-2 border-dashed border-blue-300 bg-blue-50/50 rounded-xl p-8 text-center mb-4">
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                  </svg>
+                </div>
+                <p className="text-sm font-medium text-gray-700">Drop your questionnaire PDF here</p>
+                <p className="text-xs text-gray-400 mt-1">or click to browse</p>
+              </div>
+
+              {/* Uploaded file chips */}
+              <div className="space-y-2">
+                <div className="flex items-center gap-3 bg-white rounded-lg border border-gray-200 px-4 py-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center flex-shrink-0">
+                    <span className="text-xs font-bold text-red-500">PDF</span>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-xs font-medium text-gray-900 truncate">vendor-security-questionnaire.pdf</p>
+                    <p className="text-[10px] text-gray-400">Questionnaire • 2.4 MB</p>
+                  </div>
+                  <span className="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">Uploaded</span>
+                </div>
+                <div className="flex items-center gap-3 bg-white rounded-lg border border-gray-200 px-4 py-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                    <span className="text-xs font-bold text-blue-500">PDF</span>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-xs font-medium text-gray-900 truncate">eduvault-security-policy-v3.pdf</p>
+                    <p className="text-[10px] text-gray-400">Reference • 1.8 MB</p>
+                  </div>
+                  <span className="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">Uploaded</span>
+                </div>
+                <div className="flex items-center gap-3 bg-white rounded-lg border border-blue-200 px-4 py-2.5 border-dashed">
+                  <div className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center flex-shrink-0">
+                    <span className="text-xs text-gray-300">+</span>
+                  </div>
+                  <p className="text-xs text-gray-400">Add more reference documents (up to 8)</p>
+                </div>
+              </div>
+            </div>
+
+            {/* ——— Scene 2: AI Processing ——— */}
+            <div className="absolute inset-0 p-6 animate-scene2">
+              <div className="mb-4">
+                <h3 className="text-sm font-bold text-gray-900">
+                  University of Michigan — Security Assessment 2026
+                </h3>
+                <p className="text-xs text-gray-400 mt-0.5">12 questions extracted</p>
+              </div>
+
+              {/* Processing card */}
+              <div className="bg-white rounded-xl border border-blue-200 p-6 mb-4 shadow-sm">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-md">
+                    <svg className="w-5 h-5 text-white animate-spin" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-gray-900">Gemini AI is analyzing your documents...</p>
+                    <p className="text-xs text-gray-400 mt-0.5">Reading 3 reference documents • Generating answers</p>
+                  </div>
+                </div>
+
+                {/* Progress bar */}
+                <div className="w-full bg-gray-100 rounded-full h-2 mb-2">
+                  <div className="bg-gradient-to-r from-blue-500 to-indigo-500 h-2 rounded-full animate-progress-fill" />
+                </div>
+                <p className="text-[10px] text-gray-400">Processing question 8 of 12...</p>
+              </div>
+
+              {/* Typing simulation */}
+              <div className="bg-white rounded-lg border border-gray-200 p-4">
+                <div className="flex items-start gap-2 mb-2">
+                  <div className="w-3.5 h-3.5 rounded border border-gray-300 bg-white mt-0.5 flex-shrink-0" />
+                  <p className="text-xs font-medium text-gray-900">
+                    <span className="text-gray-400 mr-1">Q8.</span>
+                    How do you handle data backup and disaster recovery?
+                  </p>
+                </div>
+                <div className="ml-5.5 pl-1.5">
+                  <p className="text-xs text-gray-600 leading-relaxed">
+                    EduVault performs daily automated backups with AES-256 encryption.
+                    Backups are replicated across two geographically separate regions
+                    <span className="inline-block w-0.5 h-3.5 bg-blue-500 ml-0.5 -mb-0.5 animate-typing" />
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* ——— Scene 3: Review ——— */}
+            <div className="absolute inset-0 p-6 animate-scene3">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h3 className="text-sm font-bold text-gray-900">
+                    University of Michigan — Security Assessment 2026
+                  </h3>
+                  <p className="text-xs text-gray-400 mt-0.5">12 questions • Completed</p>
+                </div>
+                <div className="flex gap-2">
+                  <div className="bg-blue-600 text-white text-xs px-3 py-1.5 rounded-lg font-medium">
+                    Generate Answers
+                  </div>
+                  <div className="bg-white border border-gray-200 text-gray-600 text-xs px-3 py-1.5 rounded-lg font-medium">
+                    Export PDF
+                  </div>
+                </div>
+              </div>
+
+              {/* Coverage bar */}
+              <div className="bg-white rounded-lg border border-gray-200 p-3 mb-4 flex items-center gap-5 text-xs">
+                <span className="font-medium text-gray-900">Coverage:</span>
+                <span className="flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gray-400" />
+                  Total: <b>12</b>
+                </span>
+                <span className="flex items-center gap-1 text-green-700">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                  Answered: <b>11</b>
+                </span>
+                <span className="flex items-center gap-1 text-red-700">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
+                  Not Found: <b>1</b>
+                </span>
+              </div>
+
+              {/* Animated question cards that fade in */}
+              <div className="space-y-3">
+                <div className="animate-fade-card">
+                  <MockQuestionCard
+                    num={1}
+                    question="Does your organization encrypt data at rest and in transit?"
+                    answer="Yes. EduVault encrypts all data at rest using AES-256 and in transit using TLS 1.3. Database backups are also encrypted."
+                    confidence="high"
+                    citation="Security Policy v3.2"
+                    selected={false}
+                  />
+                </div>
+                <div className="animate-fade-card-2">
+                  <MockQuestionCard
+                    num={2}
+                    question="Describe your incident response procedures."
+                    answer="EduVault follows a 4-phase incident response plan: Identification, Containment, Eradication, Recovery. The team is alerted within 15 minutes..."
+                    confidence="medium"
+                    citation="Security Policy v3.2"
+                    selected={true}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Step indicators at bottom */}
+          <div className="bg-white border-t border-gray-200 px-6 py-3 flex items-center justify-center gap-8">
+            <StepIndicatorDot label="Upload" sceneClass="animate-scene1" />
+            <StepIndicatorDot label="Generate" sceneClass="animate-scene2" />
+            <StepIndicatorDot label="Review" sceneClass="animate-scene3" />
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+/** Dot indicator at the bottom of the mockup showing which scene is active */
+function StepIndicatorDot({ label, sceneClass }: { label: string; sceneClass: string }) {
+  return (
+    <div className="flex items-center gap-2">
+      <div className={`relative w-2 h-2 rounded-full bg-gray-200`}>
+        <div className={`absolute inset-0 rounded-full bg-blue-600 ${sceneClass}`} />
+      </div>
+      <span className="text-[10px] font-medium text-gray-400">{label}</span>
     </div>
   );
 }
