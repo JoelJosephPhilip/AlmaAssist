@@ -364,12 +364,50 @@ The app uses the `google/gemini-2.0-flash-lite-001` model via OpenRouter, which 
 7. **Manage**
    - Rename or delete questionnaires from the dashboard
 
+### Demo Data
+
+The `Sample Questionnaire/` folder contains ready-to-use PDF files for testing:
+
+#### LARGE-PDFS (Full Set — 10 files)
+
+| File | Description | Use As |
+|------|-------------|--------|
+| `questionnaire.pdf` | Vendor assessment questionnaire | Questionnaire |
+| `questionnaire-completed.pdf` | Example of a completed questionnaire | Reference |
+| `security-policy.pdf` | EduVault security documentation | Reference |
+| `privacy-compliance.pdf` | FERPA/GDPR compliance policies | Reference |
+| `technical-specs.pdf` | Technical specifications | Reference |
+| `support-sla.pdf` | Support SLA documentation | Reference |
+| `api-documentation.pdf` | API documentation | Reference |
+| `backup-procedures.pdf` | Backup & recovery procedures | Reference |
+| `mfa-policy.pdf` | Multi-factor authentication policy | Reference |
+| `accessibility-compliance.pdf` | Accessibility compliance docs | Reference |
+
+#### SMALL-PDFS (Quick Test — 5 files)
+
+| File | Description | Use As |
+|------|-------------|--------|
+| `questionnaire.pdf` | Vendor assessment questionnaire | Questionnaire |
+| `security-policy.pdf` | Security documentation | Reference |
+| `privacy-compliance.pdf` | Compliance policies | Reference |
+| `technical-specs.pdf` | Technical specifications | Reference |
+| `support-sla.pdf` | Support SLA documentation | Reference |
+
+**To test the app:**
+1. Upload `questionnaire.pdf` from either folder as the questionnaire
+2. Upload the remaining PDFs as reference documents
+3. Click "Generate Answers" and review the AI-generated responses
+
 ---
 
 ## Project Structure
 
 ```
 alma-assist/
+├── Sample Questionnaire/             # Demo PDF files for testing
+│   ├── LARGE-PDFS/                   # Full set (10 PDFs)
+│   └── SMALL-PDFS/                   # Quick test set (5 PDFs)
+│
 ├── src/
 │   ├── app/                          # Next.js App Router
 │   │   ├── api/                      # API routes

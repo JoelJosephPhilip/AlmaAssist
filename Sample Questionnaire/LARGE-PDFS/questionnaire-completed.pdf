@@ -1,0 +1,628 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 3679
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+56.6929133858267775 785.1970866141732586 Td
+(questionnaire) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.392 g
+56.6929133858267775 762.5199212598424765 Td
+(Generated on 3/9/2026) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.235 g
+56.6929133858267775 745.5120472440944468 Td
+(Coverage: 10 answered, 0 not found, 10 total) Tj
+ET
+0.78 G
+56.6929133858267775 717.1655905511810261 m
+538.5870866141731312 717.1655905511810261 l
+S
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.118 g
+56.6929133858267775 688.819133858267719 Td
+(Q1: How long is data retained after contract termination?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 663.3073228346456744 Td
+(A: EduVault deletes data 90 days after termination  hello) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.314 0.314 0.706 rg
+56.6929133858267775 640.6301574803148924 Td
+(Source: privacy-compliance) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.392 g
+56.6929133858267775 626.4569291338582389 Td
+(Confidence: high) Tj
+ET
+0.9 G
+56.6929133858267775 600.9451181102361943 m
+538.5870866141731312 600.9451181102361943 l
+S
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.118 g
+56.6929133858267775 578.2679527559055259 Td
+(Q2: What is your disaster recovery plan?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 552.7561417322833677 Td
+(A: EduVault's disaster recovery plan includes a detection phase, assessment phase, recovery phase, and) Tj
+T* (restoration phase with specific timelines and actions. It utilizes geographic redundancy with data centers in) Tj
+T* (multiple regions, including a primary \(US East\), secondary \(US West\), and DR site \(EU West\). A backup) Tj
+T* (strategy, including full, incremental, and transaction log backups, is in place with defined retention periods.) Tj
+T* (The plan also details procedures for different scenarios like accidental data deletion, database corruption,) Tj
+T* (server failure, regional outage, and ransomware attacks.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.314 0.314 0.706 rg
+56.6929133858267775 459.2128346456692611 Td
+(Source: backup-procedures) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.392 g
+56.6929133858267775 445.0396062992125508 Td
+(Confidence: high) Tj
+ET
+0.9 G
+56.6929133858267775 419.5277952755905062 m
+538.5870866141731312 419.5277952755905062 l
+S
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.118 g
+56.6929133858267775 396.850629921259781 Td
+(Q3: Does the platform comply with FERPA data privacy regulations?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 371.3388188976377364 Td
+(A: Yes, EduVault is fully compliant with the Family Educational Rights and Privacy Act \(FERPA\), the primary) Tj
+T* (federal law governing student privacy in educational institutions.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.314 0.314 0.706 rg
+56.6929133858267775 334.4884251968503008 Td
+(Source: privacy-compliance) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.392 g
+56.6929133858267775 320.3151968503935905 Td
+(Confidence: high) Tj
+ET
+0.9 G
+56.6929133858267775 294.8033858267715459 m
+538.5870866141731312 294.8033858267715459 l
+S
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.118 g
+56.6929133858267775 272.1262204724408775 Td
+(Q4: Does the platform support Single Sign-On \(SSO\)?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 246.614409448818833 Td
+(A: Yes, the platform supports Single Sign-On \(SSO\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.314 0.314 0.706 rg
+56.6929133858267775 223.9372440944881646 Td
+(Source: technical-specs) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.392 g
+56.6929133858267775 209.7640157480313974 Td
+(Confidence: high) Tj
+ET
+0.9 G
+56.6929133858267775 184.2522047244093528 m
+538.5870866141731312 184.2522047244093528 l
+S
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 3928
+>>
+stream
+0.5670000000000001 w
+0.9 G
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.118 g
+56.6929133858267775 785.1970866141732586 Td
+(Q5: What uptime SLA does EduVault guarantee?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 759.6852755905511003 Td
+(A: EduVault guarantees 99.9% uptime for the EduVault platform.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.314 0.314 0.706 rg
+56.6929133858267775 737.0081102362204319 Td
+(Source: support-sla) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.392 g
+56.6929133858267775 722.8348818897637784 Td
+(Confidence: high) Tj
+ET
+0.9 G
+56.6929133858267775 697.3230708661417339 m
+538.5870866141731312 697.3230708661417339 l
+S
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.118 g
+56.6929133858267775 674.6459055118109518 Td
+(Q6: How is student data encrypted at rest and in transit?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 649.1340944881889072 Td
+(A: All data stored in EduVault's infrastructure is encrypted using AES-256 encryption, providing military-grade) Tj
+T* (protection for sensitive student information. All data transmitted between clients, servers, and third-party) Tj
+T* (integrations is protected using TLS 1.3 encryption.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.314 0.314 0.706 rg
+56.6929133858267775 598.1104724409448181 Td
+(Source: Security Policy) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.392 g
+56.6929133858267775 583.9372440944881646 Td
+(Confidence: high) Tj
+ET
+0.9 G
+56.6929133858267775 558.42543307086612 m
+538.5870866141731312 558.42543307086612 l
+S
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.118 g
+56.6929133858267775 535.748267716535338 Td
+(Q7: How are user access permissions managed?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 510.2364566929133503 Td
+(A: EduVault implements strict RBAC to ensure users only access data necessary for their role.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.314 0.314 0.706 rg
+56.6929133858267775 487.559291338582625 Td
+(Source: security-policy) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.392 g
+56.6929133858267775 473.3860629921259147 Td
+(Confidence: high) Tj
+ET
+0.9 G
+56.6929133858267775 447.8742519685038701 m
+538.5870866141731312 447.8742519685038701 l
+S
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.118 g
+56.6929133858267775 425.1970866141731449 Td
+(Q8: What is your data breach notication policy?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 399.6852755905511003 Td
+(A: EduVault maintains a comprehensive breach notication process that exceeds regulatory requirements.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.314 0.314 0.706 rg
+56.6929133858267775 377.0081102362204319 Td
+(Source: security-policy) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.392 g
+56.6929133858267775 362.8348818897637216 Td
+(Confidence: high) Tj
+ET
+0.9 G
+56.6929133858267775 337.323070866141677 m
+538.5870866141731312 337.323070866141677 l
+S
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.118 g
+56.6929133858267775 314.6459055118109518 Td
+(Q9: What third-party integrations does EduVault support?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 289.1340944881889072 Td
+(A: EduVault integrates with major LMS platforms via LTI 1.3: Canvas, Blackboard, D2L Brightspace, Moodle,) Tj
+T* (Google Classroom, and Sakai. It also integrates with SIS: Ellucian Banner, Oracle PeopleSoft, Workday) Tj
+T* (Student, Jenzabar, and PowerCampus. They also support these authentication integrations: Azure AD / Entra) Tj
+T* (ID, Okta, Google Workspace, OneLogin, and custom SAML 2.0 IdPs. They also support financial systems) Tj
+T* (integrations with: Ellucian Banner Finance, Oracle Financials, and Workday Financials.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.314 0.314 0.706 rg
+56.6929133858267775 209.7640157480313974 Td
+(Source: technical-specs) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.392 g
+56.6929133858267775 195.5907874015747439 Td
+(Confidence: high) Tj
+ET
+0.9 G
+56.6929133858267775 170.0789763779526709 m
+538.5870866141731312 170.0789763779526709 l
+S
+endstream
+endobj
+7 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 8 0 R
+>>
+endobj
+8 0 obj
+<<
+/Length 643
+>>
+stream
+0.5670000000000001 w
+0.9 G
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.118 g
+56.6929133858267775 785.1970866141732586 Td
+(Q10: Is the platform accessible on mobile devices?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.196 g
+56.6929133858267775 759.6852755905511003 Td
+(A: EduVault is fully accessible on mobile devices) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.314 0.314 0.706 rg
+56.6929133858267775 737.0081102362204319 Td
+(Source: technical-specs) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.392 g
+56.6929133858267775 722.8348818897637784 Td
+(Confidence: high) Tj
+ET
+0.9 G
+56.6929133858267775 697.3230708661417339 m
+538.5870866141731312 697.3230708661417339 l
+S
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R 7 0 R ]
+/Count 3
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+19 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+20 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+21 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+22 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 9 0 R
+/F2 10 0 R
+/F3 11 0 R
+/F4 12 0 R
+/F5 13 0 R
+/F6 14 0 R
+/F7 15 0 R
+/F8 16 0 R
+/F9 17 0 R
+/F10 18 0 R
+/F11 19 0 R
+/F12 20 0 R
+/F13 21 0 R
+/F14 22 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+23 0 obj
+<<
+/Producer (jsPDF 4.2.0)
+/CreationDate (D:20260309171133+05'30')
+>>
+endobj
+24 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 25
+0000000000 65535 f 
+0000008831 00000 n 
+0000010664 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000003883 00000 n 
+0000004020 00000 n 
+0000008000 00000 n 
+0000008137 00000 n 
+0000008900 00000 n 
+0000009025 00000 n 
+0000009156 00000 n 
+0000009290 00000 n 
+0000009428 00000 n 
+0000009552 00000 n 
+0000009681 00000 n 
+0000009813 00000 n 
+0000009949 00000 n 
+0000010077 00000 n 
+0000010204 00000 n 
+0000010333 00000 n 
+0000010466 00000 n 
+0000010568 00000 n 
+0000010916 00000 n 
+0000011002 00000 n 
+trailer
+<<
+/Size 25
+/Root 24 0 R
+/Info 23 0 R
+/ID [ <D8D32D04E1AA6653863402F811A76BB0> <D8D32D04E1AA6653863402F811A76BB0> ]
+>>
+startxref
+11106
+%%EOF
