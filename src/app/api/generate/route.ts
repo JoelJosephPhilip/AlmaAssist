@@ -13,13 +13,16 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const { questionnaireId } = await request.json();
+    const { questionnaireId, questionIds } = await request.json();
     if (!questionnaireId) {
       return NextResponse.json(
         { error: "Missing questionnaireId" },
         { status: 400 }
       );
     }
+
+    // questionIds is an optional string[] — if provided, only regenerate those questions
+    const isPartial = Array.isArray(questionIds) && questionIds.length > 0;
 
     // Verify the questionnaire belongs to the user
     const adminDb = getAdminDb();
@@ -52,6 +55,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Filter to selected questions if partial regeneration
+    const targetDocs = isPartial
+      ? questionsSnapshot.docs.filter((d) => questionIds.includes(d.id))
+      : questionsSnapshot.docs;
+
+    if (targetDocs.length === 0) {
+      return NextResponse.json(
+        { error: "No matching questions found for the given IDs" },
+        { status: 404 }
+      );
+    }
+
     // Fetch all reference documents for this questionnaire
     const docsSnapshot = await adminDb
       .collection("documents")
@@ -73,7 +88,7 @@ export async function POST(request: NextRequest) {
     // Generate answers one by one (sequential to respect Gemini rate limits)
     const results: { questionId: string; success: boolean }[] = [];
 
-    for (const questionDoc of questionsSnapshot.docs) {
+    for (const questionDoc of targetDocs) {
       try {
         const questionText = questionDoc.data().text;
         const answer = await generateAnswer(questionText, referenceDocs);
