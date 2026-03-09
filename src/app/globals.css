@@ -12,3 +12,74 @@ body {
     text-wrap: balance;
   }
 }
+
+/* ——— 3D Mockup Animations ——— */
+@keyframes mockup-float {
+  0%, 100% { transform: perspective(2000px) rotateX(2deg) rotateY(-3deg) translateY(0px); }
+  50% { transform: perspective(2000px) rotateX(1deg) rotateY(-1deg) translateY(-8px); }
+}
+@keyframes mockup-glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+@keyframes slide-scene {
+  0%, 30% { opacity: 1; transform: translateY(0); }
+  33%, 36% { opacity: 0; transform: translateY(-12px); }
+  39%, 63% { opacity: 1; transform: translateY(0); }
+  66%, 69% { opacity: 0; transform: translateY(-12px); }
+  72%, 100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes scene1 {
+  0%, 30% { opacity: 1; visibility: visible; }
+  33% { opacity: 0; visibility: hidden; }
+  34%, 100% { opacity: 0; visibility: hidden; }
+}
+@keyframes scene2 {
+  0%, 33% { opacity: 0; visibility: hidden; }
+  36%, 63% { opacity: 1; visibility: visible; }
+  66% { opacity: 0; visibility: hidden; }
+  67%, 100% { opacity: 0; visibility: hidden; }
+}
+@keyframes scene3 {
+  0%, 66% { opacity: 0; visibility: hidden; }
+  69%, 97% { opacity: 1; visibility: visible; }
+  100% { opacity: 0; visibility: hidden; }
+}
+@keyframes typing-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+@keyframes progress-fill {
+  0%, 33% { width: 0%; }
+  36% { width: 12%; }
+  45% { width: 45%; }
+  55% { width: 70%; }
+  63% { width: 100%; }
+  66%, 100% { width: 100%; }
+}
+@keyframes fade-in-card {
+  0%, 66% { opacity: 0; transform: translateY(8px); }
+  72% { opacity: 1; transform: translateY(0); }
+  97% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; }
+}
+@keyframes fade-in-card-2 {
+  0%, 72% { opacity: 0; transform: translateY(8px); }
+  78% { opacity: 1; transform: translateY(0); }
+  97% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; }
+}
+@keyframes step-indicator {
+  0%, 30% { background: rgb(37 99 235); }
+  33%, 63% { background: rgb(37 99 235); }
+  66%, 100% { background: rgb(37 99 235); }
+}
+.animate-mockup-float { animation: mockup-float 6s ease-in-out infinite; }
+.animate-mockup-glow { animation: mockup-glow-pulse 4s ease-in-out infinite; }
+.animate-scene1 { animation: scene1 12s ease-in-out infinite; }
+.animate-scene2 { animation: scene2 12s ease-in-out infinite; }
+.animate-scene3 { animation: scene3 12s ease-in-out infinite; }
+.animate-typing { animation: typing-cursor 0.8s step-end infinite; }
+.animate-progress-fill { animation: progress-fill 12s ease-in-out infinite; }
+.animate-fade-card { animation: fade-in-card 12s ease-in-out infinite; }
+.animate-fade-card-2 { animation: fade-in-card-2 12s ease-in-out infinite; }
