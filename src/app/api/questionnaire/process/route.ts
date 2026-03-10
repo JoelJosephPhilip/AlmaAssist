@@ -3,12 +3,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { verifyAuthToken } from "@/lib/auth-helpers";
 import { resolveApiKey } from "@/lib/resolve-api-key";
-
-const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
-const MODEL = "nvidia/nemotron-nano-9b-v2:free";
-
-/** Maximum text length: ~500 KB (roughly 100 pages of text) */
-const MAX_TEXT_LENGTH = 500_000;
+import {
+  OPENROUTER_API_URL,
+  OPENROUTER_MODEL,
+  OPENROUTER_MAX_TOKENS,
+  MAX_TEXT_LENGTH,
+  MAX_QUESTIONS,
+} from "@/lib/config";
 
 export async function POST(request: NextRequest) {
   try {
@@ -45,11 +46,11 @@ export async function POST(request: NextRequest) {
     }
 
     /** Prompt: extract individual questions from raw questionnaire text */
-    const prompt = `You are a document parser. Extract all individual questions from the following questionnaire text. Extract up to 20 questions.
+    const prompt = `You are a document parser. Extract all individual questions from the following questionnaire text. Extract up to ${MAX_QUESTIONS} questions.
 
 Rules:
 - Return ONLY a JSON array of strings, where each string is one question.
-- Extract up to 20 questions maximum. If there are more than 20, pick the 20 most important ones.
+- Extract up to ${MAX_QUESTIONS} questions maximum. If there are more than ${MAX_QUESTIONS}, pick the ${MAX_QUESTIONS} most important ones.
 - Preserve the original wording of each question exactly.
 - Do not include section headers, instructions, or non-question text.
 - Do not add numbering — just the question text.
@@ -63,15 +64,15 @@ ${text}
 Return ONLY valid JSON. Example format:
 ["Question 1 text here?", "Question 2 text here?"]`;
 
-    const res = await fetch(OPENROUTER_URL, {
+    const res = await fetch(OPENROUTER_API_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: MODEL,
-        max_tokens: 2048,
+        model: OPENROUTER_MODEL,
+        max_tokens: OPENROUTER_MAX_TOKENS,
         messages: [{ role: "user", content: prompt }],
       }),
     });
@@ -118,8 +119,8 @@ Return ONLY valid JSON. Example format:
       );
     }
 
-    // Cap at 20 questions
-    const capped = questions.slice(0, 20);
+    // Cap at configured max
+    const capped = questions.slice(0, MAX_QUESTIONS);
 
     return NextResponse.json({ questions: capped });
   } catch (error) {

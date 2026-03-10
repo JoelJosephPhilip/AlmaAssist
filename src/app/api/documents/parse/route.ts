@@ -2,12 +2,10 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { verifyAuthToken } from "@/lib/auth-helpers";
+import { MAX_FILE_SIZE } from "@/lib/config";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-
-/** Maximum PDF file size: 10 MB */
-const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
 export async function POST(request: NextRequest) {
   try {

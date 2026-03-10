@@ -1,24 +1,28 @@
-/* AI client — generates RAG-grounded answers via OpenRouter (Gemini 2.0 Flash Lite) */
+/* AI client — generates RAG-grounded answers via OpenRouter */
 
 import { GeneratedAnswer } from "@/types";
-
-const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
-const MODEL = "nvidia/nemotron-nano-9b-v2:free";
+import {
+  OPENROUTER_API_URL,
+  OPENROUTER_MODEL,
+  OPENROUTER_MAX_TOKENS,
+  COMPACT_CONTEXT_CHARS,
+  FULL_CONTEXT_CHARS,
+} from "@/lib/config";
 
 /** Call OpenRouter chat completions API */
 async function chatCompletion(prompt: string, apiKey?: string): Promise<string> {
   const key = apiKey || process.env.OPENROUTER_API_KEY;
   if (!key) throw new Error("No API key available. Please add your OpenRouter API key in the dashboard.");
 
-  const res = await fetch(OPENROUTER_URL, {
+  const res = await fetch(OPENROUTER_API_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${key}`,
     },
     body: JSON.stringify({
-      model: MODEL,
-      max_tokens: 2048,
+      model: OPENROUTER_MODEL,
+      max_tokens: OPENROUTER_MAX_TOKENS,
       messages: [{ role: "user", content: prompt }],
     }),
   });
@@ -31,10 +35,6 @@ async function chatCompletion(prompt: string, apiKey?: string): Promise<string> 
   const data = await res.json();
   return data.choices?.[0]?.message?.content || "";
 }
-
-/** Rough token estimate: ~4 characters per token */
-const COMPACT_CONTEXT_CHARS = 40_000; // ~10K tokens — works with limited credits
-const FULL_CONTEXT_CHARS = 200_000;   // ~50K tokens — needs sufficient credits
 
 /** Generate an answer for a single question using reference documents.
  *  Returns structured answer with citation, confidence, and evidence snippet.

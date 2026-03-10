@@ -3,9 +3,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { verifyAuthToken } from "@/lib/auth-helpers";
 import { getAdminDb } from "@/lib/firebase-admin";
-
-const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
-const TEST_MODEL = "nvidia/nemotron-nano-9b-v2:free";
+import {
+  OPENROUTER_API_URL,
+  OPENROUTER_MODEL,
+  OPENROUTER_KEY_PREFIX,
+  OPENROUTER_TEST_MAX_TOKENS,
+} from "@/lib/config";
 
 export async function POST(request: NextRequest) {
   try {
@@ -16,23 +19,23 @@ export async function POST(request: NextRequest) {
 
     const { apiKey, save } = await request.json();
 
-    if (!apiKey || typeof apiKey !== "string" || !apiKey.startsWith("sk-or-")) {
+    if (!apiKey || typeof apiKey !== "string" || !apiKey.startsWith(OPENROUTER_KEY_PREFIX)) {
       return NextResponse.json(
-        { error: "Invalid API key format. OpenRouter keys start with sk-or-" },
+        { error: `Invalid API key format. OpenRouter keys start with ${OPENROUTER_KEY_PREFIX}` },
         { status: 400 }
       );
     }
 
     // Test the key with a minimal request
-    const res = await fetch(OPENROUTER_URL, {
+    const res = await fetch(OPENROUTER_API_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: TEST_MODEL,
-        max_tokens: 5,
+        model: OPENROUTER_MODEL,
+        max_tokens: OPENROUTER_TEST_MAX_TOKENS,
         messages: [{ role: "user", content: "Hi" }],
       }),
     });
