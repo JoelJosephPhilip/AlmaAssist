@@ -3,13 +3,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { verifyAuthToken } from "@/lib/auth-helpers";
 import { resolveApiKey } from "@/lib/resolve-api-key";
+import { MAX_TEXT_LENGTH, MAX_QUESTIONS } from "@/lib/config";
 import {
-  OPENROUTER_API_URL,
-  OPENROUTER_MODEL,
-  OPENROUTER_MAX_TOKENS,
-  MAX_TEXT_LENGTH,
-  MAX_QUESTIONS,
-} from "@/lib/config";
+  callOpenRouter,
+  OpenRouterError,
+  parseJsonResponse,
+} from "@/lib/openrouter-client";
 
 export async function POST(request: NextRequest) {
   try {
@@ -64,58 +63,29 @@ ${text}
 Return ONLY valid JSON. Example format:
 ["Question 1 text here?", "Question 2 text here?"]`;
 
-    const res = await fetch(OPENROUTER_API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model: OPENROUTER_MODEL,
-        max_tokens: OPENROUTER_MAX_TOKENS,
-        messages: [{ role: "user", content: prompt }],
-      }),
-    });
-
-    if (!res.ok) {
-      const body = await res.text();
-      console.error("OpenRouter error:", res.status, body);
-      const errorMsg =
-        res.status === 429
-          ? "AI rate limit reached. Please wait and try again."
-          : res.status === 402
-            ? "AI service out of credits. Please top up at openrouter.ai/settings/credits."
-            : "Failed to extract questions.";
-      return NextResponse.json(
-        { error: errorMsg },
-        { status: res.status }
-      );
+    let response: string;
+    try {
+      response = await callOpenRouter(prompt, { apiKey });
+    } catch (err) {
+      if (err instanceof OpenRouterError) {
+        console.error("OpenRouter error:", err.status, err.body);
+        const errorMsg =
+          err.status === 429
+            ? "AI rate limit reached. Please wait and try again."
+            : err.status === 402
+              ? "AI service out of credits. Please top up at openrouter.ai/settings/credits."
+              : "Failed to extract questions.";
+        return NextResponse.json({ error: errorMsg }, { status: err.status });
+      }
+      throw err;
     }
 
-    const data = await res.json();
-    const response = data.choices?.[0]?.message?.content || "";
-
-    // Extract JSON from the response (handle markdown code blocks)
-    const jsonMatch = response.match(/\[[\s\S]*\]/);
-    if (!jsonMatch) {
-      return NextResponse.json(
-        { error: "Failed to extract questions from the document" },
-        { status: 500 }
-      );
-    }
-
-    // Sanitize control characters that break JSON.parse (tabs, newlines inside strings, etc.)
-    const sanitized = jsonMatch[0].replace(/[\x00-\x1F\x7F]/g, (ch: string) => {
-      if (ch === "\n" || ch === "\r" || ch === "\t") return " ";
-      return "";
-    });
-
-    const questions: string[] = JSON.parse(sanitized);
+    const questions = parseJsonResponse<string[]>(response, "array");
 
     if (!Array.isArray(questions) || questions.length === 0) {
       return NextResponse.json(
-        { error: "No questions found in the document" },
-        { status: 400 }
+        { error: questions === null ? "Failed to extract questions from the document" : "No questions found in the document" },
+        { status: questions === null ? 500 : 400 }
       );
     }
 

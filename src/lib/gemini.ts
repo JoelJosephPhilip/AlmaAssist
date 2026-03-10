@@ -1,40 +1,8 @@
 /* AI client — generates RAG-grounded answers via OpenRouter */
 
 import { GeneratedAnswer } from "@/types";
-import {
-  OPENROUTER_API_URL,
-  OPENROUTER_MODEL,
-  OPENROUTER_MAX_TOKENS,
-  COMPACT_CONTEXT_CHARS,
-  FULL_CONTEXT_CHARS,
-} from "@/lib/config";
-
-/** Call OpenRouter chat completions API */
-async function chatCompletion(prompt: string, apiKey?: string): Promise<string> {
-  const key = apiKey || process.env.OPENROUTER_API_KEY;
-  if (!key) throw new Error("No API key available. Please add your OpenRouter API key in the dashboard.");
-
-  const res = await fetch(OPENROUTER_API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${key}`,
-    },
-    body: JSON.stringify({
-      model: OPENROUTER_MODEL,
-      max_tokens: OPENROUTER_MAX_TOKENS,
-      messages: [{ role: "user", content: prompt }],
-    }),
-  });
-
-  if (!res.ok) {
-    const body = await res.text();
-    throw new Error(`OpenRouter error ${res.status}: ${body}`);
-  }
-
-  const data = await res.json();
-  return data.choices?.[0]?.message?.content || "";
-}
+import { COMPACT_CONTEXT_CHARS, FULL_CONTEXT_CHARS } from "@/lib/config";
+import { callOpenRouter, parseJsonResponse } from "@/lib/openrouter-client";
 
 /** Generate an answer for a single question using reference documents.
  *  Returns structured answer with citation, confidence, and evidence snippet.
@@ -84,39 +52,25 @@ Respond ONLY with valid JSON in this exact format (no markdown, no code blocks):
 If the answer is not found, respond with:
 {"answer": "Not found in references.", "citation": "", "confidence": "low", "evidenceSnippet": ""}`;
 
-  const responseText = await chatCompletion(prompt, apiKey);
+  const responseText = await callOpenRouter(prompt, { apiKey });
 
-  // Parse the JSON response, handling potential markdown wrapping
-  const jsonMatch = responseText.match(/\{[\s\S]*\}/);
-  if (!jsonMatch) {
-    return {
-      answer: "Not found in references.",
-      citation: "",
-      confidence: "low",
-      evidenceSnippet: "",
-    };
-  }
-
-  // Sanitize control characters that break JSON.parse
-  const sanitized = jsonMatch[0].replace(/[\x00-\x1F\x7F]/g, (ch: string) => {
-    if (ch === "\n" || ch === "\r" || ch === "\t") return " ";
-    return "";
-  });
+  const fallback: GeneratedAnswer = {
+    answer: "Not found in references.",
+    citation: "",
+    confidence: "low",
+    evidenceSnippet: "",
+  };
 
   try {
-    const parsed = JSON.parse(sanitized) as GeneratedAnswer;
+    const parsed = parseJsonResponse<GeneratedAnswer>(responseText, "object");
+    if (!parsed) return fallback;
     return {
-      answer: parsed.answer || "Not found in references.",
+      answer: parsed.answer || fallback.answer,
       citation: parsed.citation || "",
       confidence: parsed.confidence || "low",
       evidenceSnippet: parsed.evidenceSnippet || "",
     };
   } catch {
-    return {
-      answer: "Not found in references.",
-      citation: "",
-      confidence: "low",
-      evidenceSnippet: "",
-    };
+    return fallback;
   }
 }

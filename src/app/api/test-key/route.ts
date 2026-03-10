@@ -3,12 +3,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { verifyAuthToken } from "@/lib/auth-helpers";
 import { getAdminDb } from "@/lib/firebase-admin";
-import {
-  OPENROUTER_API_URL,
-  OPENROUTER_MODEL,
-  OPENROUTER_KEY_PREFIX,
-  OPENROUTER_TEST_MAX_TOKENS,
-} from "@/lib/config";
+import { OPENROUTER_KEY_PREFIX, OPENROUTER_TEST_MAX_TOKENS } from "@/lib/config";
+import { callOpenRouter, OpenRouterError } from "@/lib/openrouter-client";
 
 export async function POST(request: NextRequest) {
   try {
@@ -27,29 +23,25 @@ export async function POST(request: NextRequest) {
     }
 
     // Test the key with a minimal request
-    const res = await fetch(OPENROUTER_API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model: OPENROUTER_MODEL,
-        max_tokens: OPENROUTER_TEST_MAX_TOKENS,
-        messages: [{ role: "user", content: "Hi" }],
-      }),
-    });
-
-    if (!res.ok) {
-      const body = await res.text();
-      const status = res.status;
-      const msg =
-        status === 401
-          ? "Invalid API key."
-          : status === 402
-            ? "API key has insufficient credits."
-            : `API key test failed (${status}).`;
-      return NextResponse.json({ valid: false, error: msg, details: body }, { status: 200 });
+    try {
+      await callOpenRouter("Hi", {
+        apiKey,
+        maxTokens: OPENROUTER_TEST_MAX_TOKENS,
+      });
+    } catch (err) {
+      if (err instanceof OpenRouterError) {
+        const msg =
+          err.status === 401
+            ? "Invalid API key."
+            : err.status === 402
+              ? "API key has insufficient credits."
+              : `API key test failed (${err.status}).`;
+        return NextResponse.json(
+          { valid: false, error: msg, details: err.body },
+          { status: 200 },
+        );
+      }
+      throw err;
     }
 
     // Key works — optionally save it
