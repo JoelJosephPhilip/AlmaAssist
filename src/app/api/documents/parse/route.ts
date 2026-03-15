@@ -1,20 +1,14 @@
 /* API route to parse PDF files and extract text using pdf-parse */
 
-import { NextRequest, NextResponse } from "next/server";
-import { verifyAuthToken } from "@/lib/auth-helpers";
+import { NextResponse } from "next/server";
 import { MAX_FILE_SIZE } from "@/lib/config";
+import { withAuth } from "@/lib/api-middleware";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export async function POST(request: NextRequest) {
+export const POST = withAuth(async (request) => {
   try {
-    // Verify authentication
-    const decodedToken = await verifyAuthToken(request);
-    if (!decodedToken) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
     const formData = await request.formData();
     const file = formData.get("file") as File | null;
 
@@ -65,4 +59,4 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+});

@@ -1,8 +1,8 @@
 /* API route to extract individual questions from raw questionnaire text via OpenRouter */
 
-import { NextRequest, NextResponse } from "next/server";
-import { verifyAuthToken } from "@/lib/auth-helpers";
+import { NextResponse } from "next/server";
 import { resolveApiKey } from "@/lib/resolve-api-key";
+import { withAuth } from "@/lib/api-middleware";
 import { MAX_TEXT_LENGTH, MAX_QUESTIONS } from "@/lib/config";
 import {
   callOpenRouter,
@@ -10,14 +10,8 @@ import {
   parseJsonResponse,
 } from "@/lib/openrouter-client";
 
-export async function POST(request: NextRequest) {
+export const POST = withAuth(async (request, token) => {
   try {
-    // Verify authentication
-    const decodedToken = await verifyAuthToken(request);
-    if (!decodedToken) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
     const { text } = await request.json();
 
     if (!text || text.trim().length === 0) {
@@ -36,7 +30,7 @@ export async function POST(request: NextRequest) {
 
     let apiKey: string;
     try {
-      apiKey = await resolveApiKey(decodedToken.uid);
+      apiKey = await resolveApiKey(token.uid);
     } catch {
       return NextResponse.json(
         { error: "No API key available. Please add your OpenRouter API key in the dashboard." },
@@ -100,4 +94,4 @@ Return ONLY valid JSON. Example format:
       { status: 500 }
     );
   }
-}
+});

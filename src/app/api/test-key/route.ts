@@ -1,18 +1,13 @@
 /* API route to test an OpenRouter API key and optionally save it to user settings */
 
-import { NextRequest, NextResponse } from "next/server";
-import { verifyAuthToken } from "@/lib/auth-helpers";
+import { NextResponse } from "next/server";
 import { getAdminDb } from "@/lib/firebase-admin";
+import { withAuth } from "@/lib/api-middleware";
 import { OPENROUTER_KEY_PREFIX, OPENROUTER_TEST_MAX_TOKENS } from "@/lib/config";
 import { callOpenRouter, OpenRouterError } from "@/lib/openrouter-client";
 
-export async function POST(request: NextRequest) {
+export const POST = withAuth(async (request, token) => {
   try {
-    const decodedToken = await verifyAuthToken(request);
-    if (!decodedToken) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
     const { apiKey, save } = await request.json();
 
     if (!apiKey || typeof apiKey !== "string" || !apiKey.startsWith(OPENROUTER_KEY_PREFIX)) {
@@ -49,7 +44,7 @@ export async function POST(request: NextRequest) {
       const adminDb = getAdminDb();
       await adminDb
         .collection("userSettings")
-        .doc(decodedToken.uid)
+        .doc(token.uid)
         .set({ openrouterApiKey: apiKey }, { merge: true });
     }
 
@@ -61,20 +56,15 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+});
 
 /** DELETE — remove saved API key */
-export async function DELETE(request: NextRequest) {
+export const DELETE = withAuth(async (request, token) => {
   try {
-    const decodedToken = await verifyAuthToken(request);
-    if (!decodedToken) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
     const adminDb = getAdminDb();
     await adminDb
       .collection("userSettings")
-      .doc(decodedToken.uid)
+      .doc(token.uid)
       .set({ openrouterApiKey: "" }, { merge: true });
 
     return NextResponse.json({ message: "API key removed." });
@@ -85,20 +75,15 @@ export async function DELETE(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+});
 
 /** GET — check if user has a saved API key */
-export async function GET(request: NextRequest) {
+export const GET = withAuth(async (request, token) => {
   try {
-    const decodedToken = await verifyAuthToken(request);
-    if (!decodedToken) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
     const adminDb = getAdminDb();
     const doc = await adminDb
       .collection("userSettings")
-      .doc(decodedToken.uid)
+      .doc(token.uid)
       .get();
 
     const hasKey = !!(doc.exists && doc.data()?.openrouterApiKey);
@@ -110,4 +95,4 @@ export async function GET(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+});

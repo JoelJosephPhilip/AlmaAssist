@@ -1,19 +1,13 @@
 /* API route to generate RAG-grounded answers for all questions in a questionnaire */
 
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { getAdminDb } from "@/lib/firebase-admin";
-import { verifyAuthToken } from "@/lib/auth-helpers";
 import { generateAnswer } from "@/lib/gemini";
 import { resolveApiKey } from "@/lib/resolve-api-key";
+import { withAuth } from "@/lib/api-middleware";
 
-export async function POST(request: NextRequest) {
+export const POST = withAuth(async (request, token) => {
   try {
-    // Verify authentication
-    const decodedToken = await verifyAuthToken(request);
-    if (!decodedToken) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
     const { questionnaireId, questionIds, contextMode } = await request.json();
     if (!questionnaireId) {
       return NextResponse.json(
@@ -27,7 +21,7 @@ export async function POST(request: NextRequest) {
     // Resolve user's API key (custom or default)
     let userApiKey: string;
     try {
-      userApiKey = await resolveApiKey(decodedToken.uid);
+      userApiKey = await resolveApiKey(token.uid);
     } catch {
       return NextResponse.json(
         { error: "No API key available. Please add your OpenRouter API key in the dashboard." },
@@ -52,7 +46,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (questionnaireDoc.data()?.userId !== decodedToken.uid) {
+    if (questionnaireDoc.data()?.userId !== token.uid) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
     }
 
@@ -140,4 +134,4 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+});
